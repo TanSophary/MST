@@ -1,0 +1,70 @@
+﻿@using MST.ViewModels
+@model RegisterViewModel
+
+@{
+    ViewData["Title"] = "Register";
+    Layout = "~/Views/Shared/_AccountLayout.cshtml";
+}
+
+<link href="~/css/account.css" rel="stylesheet" />
+
+<div class="account-container">
+    <div class="login-card">
+        <!-- Left panel: Register form -->
+        <div class="login-form">
+            <h2>Create Account</h2>
+            <p>Sign up to get started with M.S.T</p>
+            <form asp-action="Register" method="post">
+                @Html.AntiForgeryToken()
+                <div asp-validation-summary="ModelOnly" class="text-danger mb-3"></div>
+
+                <div class="mb-3">
+                    <input asp-for="Name" class="form-control" placeholder="Full Name" />
+                    <span asp-validation-for="Name" class="text-danger"></span>
+                </div>
+
+                <div class="mb-3">
+                    <input asp-for="Email" class="form-control" placeholder="Email" />
+                    <span asp-validation-for="Email" class="text-danger"></span>
+                </div>
+
+                <div class="mb-3">
+                    <input asp-for="Password" class="form-control" placeholder="Password" />
+                    <span asp-validation-for="Password" class="text-danger"></span>
+                </div>
+
+                <div class="mb-3">
+                    <input asp-for="ConfirmPassword" class="form-control" placeholder="Confirm Password" />
+                    <span asp-validation-for="ConfirmPassword" class="text-danger"></span>
+                </div>
+
+                <button type="submit" class="btn btn-login w-100">Register</button>
+
+                <p class="text-center mt-3">
+                    Already have an account? <a asp-controller="Account" asp-action="Login">Login</a>
+                </p>
+
+                <div class="text-center mt-2">
+                    <a asp-controller="Home" asp-action="Index">Back</a>
+                </div>
+            </form>
+        </div>
+
+        <!-- Right panel: Info / Branding -->
+        <div class="login-info">
+            <h2>Welcome to M.S.T</h2>
+            <p>
+                Welcome to M.S.T! By registering, you join a team dedicated to innovative engineering solutions that shape industries and communities. Gain access to cutting-edge projects, tools, and resources, and become part of a network driving progress, quality, and excellence in every engineering endeavor.
+            </p>
+            <hr style="border: 1px solid #333; width: 50%; text-align: left;" />
+            <br />
+            <p>Sign up with M.S.T to explore engineering innovations and be part of building a better future.</p>
+        </div>
+    </div>
+</div>
+
+@section Scripts {
+    @{
+        await Html.RenderPartialAsync("_ValidationScriptsPartial.cshtml");
+    }
+}

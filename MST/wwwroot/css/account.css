@@ -1,0 +1,103 @@
+﻿body {
+    margin: 0;
+    padding: 0;
+    height: 100vh;
+    background: rgb(22, 100, 148) url('/images/background-login2.webp') no-repeat center center;
+    background-size: cover;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-family: 'Segoe UI', sans-serif;
+}
+
+.login-card {
+    background-color: #fff;
+    border-radius: 30px;
+    box-shadow: 0 20px 40px rgba(0, 0, 0, 0.1);
+    display: flex;
+    overflow: hidden;
+    width: 900px;
+}
+
+.login-form {
+    padding: 40px;
+    flex: 1;
+}
+
+    .login-form h2 {
+        color: rgb(22, 100, 148);
+        margin-bottom: 10px;
+    }
+
+    .login-form p {
+        color: rgb(103, 176, 224);
+        margin-bottom: 30px;
+    }
+
+.form-control {
+    border-radius: 50px;
+    padding: 14px 20px;
+    box-shadow: none !important;
+    border: 1px solid rgb(103, 176, 224);
+}
+
+.btn-login {
+    border-radius: 50px;
+    padding: 12px;
+    background: linear-gradient(to right, rgb(88, 123, 176), rgb(103, 176, 224));
+    color: rgb(255, 255, 255);
+    border: none;
+    font-weight: bold;
+    cursor: pointer;
+    transition: 0.3s ease;
+}
+
+    .btn-login:hover {
+        background: linear-gradient(to right, rgb(103, 176, 224), rgb(88, 123, 176));
+    }
+
+.login-info {
+    background: linear-gradient(to bottom right, rgb(88, 123, 176), rgb(103, 176, 224));
+    color: rgb(255, 255, 255);
+    padding: 40px;
+    border-top-left-radius: 50px;
+    border-bottom-left-radius: 50px;
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    box-shadow: inset 0 0 10px rgba(255, 255, 255, 0.2);
+}
+
+    .login-info h2 {
+        font-size: 32px;
+        margin-bottom: 20px;
+        font-weight: 600;
+        color: rgb(255, 255, 255);
+    }
+
+    .login-info p {
+        font-size: 16px;
+        line-height: 1.5;
+        max-width: 300px;
+        color: rgb(255, 255, 255);
+    }
+
+.form-links {
+    display: flex;
+    justify-content: space-between;
+    font-size: 0.9rem;
+}
+
+    .form-links a {
+        text-decoration: none;
+        color: rgb(22, 100, 148);
+        font-weight: 500;
+        transition: 0.3s ease;
+    }
+
+        .form-links a:hover {
+            color: rgb(103, 176, 224);
+        }

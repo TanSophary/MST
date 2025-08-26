@@ -6,6 +6,8 @@ using MST.Services;
 using MST.Data;
 using MST.Models;
 using MST.Services;
+using MST;
+using Telegram.Bot;
 
 var builder = WebApplication.CreateBuilder(args);
 
@@ -24,6 +26,12 @@ builder.Services.AddIdentity<Users, IdentityRole>(options =>
 })
     .AddEntityFrameworkStores<AppDbContext>()
     .AddDefaultTokenProviders();
+
+// Add services to the container
+builder.Services.AddControllersWithViews();
+builder.Services.AddSingleton<ITelegramBotClient>(new TelegramBotClient("8498115829:AAHvcNPD3edo8pcDRyXc-gGvSS023fjsISQ"));
+// Program.cs
+builder.Services.AddLogging(logging => logging.AddConsole());
 
 builder.Services.Configure<EmailService>(builder.Configuration.GetSection("EmailSetting"));
 builder.Services.AddTransient<IEmailService, EmailService>();
@@ -48,6 +56,6 @@ app.UseAuthorization();
 
 app.MapControllerRoute(
     name: "default",
-    pattern: "{controller=Home}/{action=Index}/{id?}");
+    pattern: "{controller=Alert}/{action=SendAlert}/{id?}");
 
 app.Run();

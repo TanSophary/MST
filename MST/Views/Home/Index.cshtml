@@ -1,33 +1,103 @@
 ﻿@{
     ViewData["Title"] = "Home";
 }
-<link href="~/css/home.css" rel="stylesheet" />
+<link href="~/css/home.css" rel="stylesheet" asp-append-version="true" />
 
-<!-- Hero Section -->
-<div class="home-container d-flex align-items-center">
-    <!-- Background image -->
-    <img src="~/images/background-login3.jpg"
-         class="w-100 vh-100 object-fit-cover position-fixed"
-         alt="Engineering Building" />
+<!-- Hero Content Section -->
+<section class="hero-section d-flex align-items-center">
+    <div class="hero-overlay"></div>
+    <div class="container text-white position-relative z-2">
+        <div class="hero-content">
+            <h1 class="display-4 fw-bold">Find Your Perfect Home</h1>
+            <p class="lead mb-4">
+                Explore premium properties for sale and rent, tailored to your lifestyle.
+            </p>
+            <div class="search-bar d-flex align-items-center">
+                <select class="form-select me-2">
+                    <option>Industrial House</option>
+                    <option>Apartment</option>
+                    <option>Villa</option>
+                </select>
+                <select class="form-select me-2">
+                    <option>New York</option>
+                    <option>London</option>
+                    <option>Paris</option>
+                </select>
+                <button class="btn btn-primary px-4">Search</button>
+            </div>
+        </div>
+    </div>
+</section>
 
-    <!-- Hero content (left side, vertically centered) -->
-    <div class="home-content text-white ps-5">
-        <h1 class="display-4 fw-bold">Welcome to Our Engineering Building</h1>
-        <p class="lead">Explore the facilities, learn about our programs, and join our community of innovators.</p>
-        <a href="/About" class="btn btn-lg btn-light fw-bold">Learn More</a>
+<!-- Features Section -->
+<section class="features-section py-5 text-center">
+    <div class="container">
+        <h2 class="fw-bold mb-4">Built to help you find a place to live</h2>
+        <p class="text-muted mb-5">Helping you find your dream home through our website and global offices.</p>
+        <div class="row">
+            <div class="col-md-4 mb-3">
+                <div class="feature-card p-4">
+                    <h3 class="fw-bold text-primary">200+</h3>
+                    <p>Apartment Sales</p>
+                </div>
+            </div>
+            <div class="col-md-4 mb-3">
+                <div class="feature-card p-4">
+                    <h3 class="fw-bold text-primary">180+</h3>
+                    <p>Completed Projects</p>
+                </div>
+            </div>
+            <div class="col-md-4 mb-3">
+                <div class="feature-card p-4">
+                    <h3 class="fw-bold text-primary">9.8k+</h3>
+                    <p>Happy Clients</p>
+                </div>
+            </div>
+        </div>
     </div>
-</div>
+</section>
 
-<!-- Second Section -->
-<div class="home-container2">
-    <!-- Left description -->
-    <div class="description">
-        <h2>About Our Engineering Building</h2>
-        <p>Our engineering building offers state-of-the-art labs, classrooms, and collaborative spaces for students and faculty. We foster innovation, research, and hands-on learning opportunities for all engineering disciplines.</p>
-        <a href="/Programs" class="btn btn-primary fw-bold">Explore Programs</a>
+<!-- Featured Properties -->
+<section class="featured-section py-5">
+    <div class="container">
+        <h2 class="fw-bold mb-4 text-center">Introducing Our Featured Properties</h2>
+        <div class="row g-4">
+            <div class="col-md-4">
+                <div class="property-card">
+                    <img src="~/images/test2.jpg" alt="House 1">
+                    <div class="p-3">
+                        <h5 class="fw-bold">Elegant House</h5>
+                        <p class="text-muted">$1,200,000 • New York</p>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-4">
+                <div class="property-card">
+                    <img src="~/images/test2.jpg" alt="House 2">
+                    <div class="p-3">
+                        <h5 class="fw-bold">Luxury Apartment</h5>
+                        <p class="text-muted">$950,000 • London</p>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-4">
+                <div class="property-card">
+                    <img src="~/images/test2.jpg" alt="House 3">
+                    <div class="p-3">
+                        <h5 class="fw-bold">Modern Villa</h5>
+                        <p class="text-muted">$1,500,000 • Paris</p>
+                    </div>
+                </div>
+            </div>
+        </div>
     </div>
-    <!-- Right image -->
-    <div class="image">
-        <img src="~/images/background-login1.jpg" alt="Engineering Building">
+</section>
+
+<!-- Call to Action -->
+<section class="cta-section text-white text-center py-5">
+    <div class="container">
+        <h2 class="fw-bold mb-3">We will find a place to live near you</h2>
+        <p class="mb-4">Let’s connect and find your dream property today.</p>
+        <a href="/Contact" class="btn btn-light btn-lg fw-bold">Discover Now</a>
     </div>
-</div>
+</section>

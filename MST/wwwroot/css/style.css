@@ -1,46 +1,52 @@
-﻿/* Make body take full height */
-html, body {
+﻿html, body {
     height: 100%;
     margin: 0;
     display: flex;
     flex-direction: column;
 }
 
-/* Main container grows to push footer down */
 .container, main {
     flex: 1 0 auto;
 }
-/* Navbar fixed always on top */
+
+main {
+    padding-top: 70px; /* Matches navbar height */
+}
+
 .navbar {
     position: fixed;
     top: 0;
+    left: 0;
+    right: 0;
     width: 100%;
-    height: 100px;
-    background-color: transparent !important;
-    transition: background-color 0.3s ease, box-shadow 0.3s ease;
+    height: 70px;
+    background-color: transparent;
+    transition: background-color 0.4s ease, box-shadow 0.4s ease;
     z-index: 1030;
 }
 
-    /* Navbar hover or scrolled */
-    .navbar:hover,
     .navbar.scrolled {
-        background-color: #ffffff !important;
-        box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+        background-color: #ffffff;
+        box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
     }
 
-        /* Adjust text color when navbar has background */
-        .navbar.scrolled .nav-link,
-        .navbar:hover .nav-link,
-        .navbar.scrolled .navbar-brand,
-        .navbar:hover .navbar-brand {
-            color: #000 !important;
-        }
+    /* Target all links in navbar with high specificity */
+    .navbar.navbar-light .navbar-brand,
+    .navbar.navbar-light .nav-link,
+    .navbar.navbar-light .navbar-nav a {
+        color: #fff !important; /* White before scrolling */
+        transition: color 0.3s ease;
+    }
 
-/* Underline animation */
+    .navbar.navbar-light.scrolled .navbar-brand,
+    .navbar.navbar-light.scrolled .nav-link,
+    .navbar.navbar-light.scrolled .navbar-nav a {
+        color: #000 !important; /* Black after scrolling */
+    }
+
 .navbar-nav .nav-link {
     position: relative;
     padding: 8px 15px;
-    transition: color 0.3s ease;
 }
 
     .navbar-nav .nav-link::after {
@@ -61,24 +67,17 @@ html, body {
         .navbar-nav .nav-link:hover::after {
             width: 100%;
         }
+
 .navbar .container-fluid {
     padding-left: 100px;
     padding-right: 100px;
 }
 
-
-/* Dropdown hover */
 .dropdown:hover .dropdown-menu {
     display: block;
     margin-top: 0;
 }
 
-.dropdown-menu a:hover {
-    background-color: rgb(99,163,212);
-    color: #fff !important;
-}
-
-/* Footer */
 footer {
     flex-shrink: 0;
     background-color: rgb(99,163,212);
@@ -91,7 +90,3 @@ footer {
         color: #fff;
         text-decoration: underline;
     }
-
-        footer a:hover {
-            color: #000; /* contrast hover */
-        }

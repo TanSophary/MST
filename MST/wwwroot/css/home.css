@@ -1,56 +1,104 @@
-﻿/* home.css */
-html, body {
-    height: 100%;
-    margin: 0;
-}
-
+﻿/* home.cs */
 /* Hero Section */
-.home-container {
-    width: 100%;
-    height: 100vh;
+.hero-section {
     position: relative;
-    overflow: hidden;
+    min-height: 400px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background-image: url('../images/test2.jpg'); 
+    background-size: cover;
+    background-position: center;
+    background-attachment: fixed; 
+    top: -70px; 
+    padding-top: 70px; 
 }
 
-    .home-container img {
-        width: 100%;
-        height: 100vh;
-        object-fit: cover;
-        position: fixed;
-        top: 0;
-        left: 0;
-        z-index: -1;
+.hero-overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.5); 
+    z-index: 1;
+}
+
+.hero-content {
+    position: relative;
+    z-index: 2;
+    text-align: center;
+}
+
+.search-bar {
+    background: white;
+    padding: 10px;
+    border-radius: 50px;
+    max-width: 600px;
+    margin: 0 auto;
+}
+
+    .search-bar select {
+        border: none;
+        outline: none;
+        padding: 10px;
     }
 
-/* Hero content left & vertically centered */
-.home-content {
-    position: absolute;
-    left: 50px; /* distance from left */
-    top: 35%;
-    transform: translateY(-50%);
-    max-width: 500px;
-    color: white;
+    .search-bar .btn-primary {
+        background-color: #007bff;
+        border: none;
+        border-radius: 50px;
+    }
+
+        .search-bar .btn-primary:hover {
+            background-color: #0056b3;
+        }
+
+/* Features Section */
+.features-section {
+    background-color: #f8f9fa;
 }
 
-/* Second Section */
-.home-container2 {
-    width: 100%;
-    height: 100vh;
-    margin: 0;
-    display: flex; /* horizontal layout */
-    align-items: center;
-    justify-content: space-between;
-    padding: 0 50px;
-    box-sizing: border-box;
-    background-color: #f8f9fa; /* light background */
+.feature-card {
+    background: white;
+    border-radius: 12px;
+    box-shadow: 0 3px 8px rgba(0, 0, 0, 0.1);
+    transition: transform 0.3s ease;
 }
 
-.description {
-    max-width: 60%;
+    .feature-card:hover {
+        transform: translateY(-8px);
+    }
+
+/* Featured Section */
+.featured-section {
+    background-color: #ffffff;
 }
 
-.image img {
-    width: 600px;
-    height: 400px;
-    object-fit: cover;
+.property-card {
+    background: white;
+    border-radius: 12px;
+    overflow: hidden;
+    box-shadow: 0 3px 8px rgba(0, 0, 0, 0.1);
+    transition: transform 0.3s ease;
+}
+
+    .property-card:hover {
+        transform: translateY(-6px);
+    }
+
+    .property-card img {
+        width: 100%;
+        height: 250px;
+        object-fit: cover;
+    }
+
+/* CTA Section */
+.cta-section {
+    background: linear-gradient(135deg, #0066cc, #003366);
+}
+
+.btn-light {
+    border-radius: 50px;
+    padding: 12px 32px;
 }

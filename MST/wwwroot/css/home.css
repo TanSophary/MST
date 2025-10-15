@@ -53,7 +53,6 @@
         .search-bar .btn-primary:hover {
             background-color: #0056b3;
         }
-
 /* Features Section */
 .features-section {
     background-color: #f8f9fa;
@@ -69,7 +68,6 @@
     .feature-card:hover {
         transform: translateY(-8px);
     }
-
 /* Featured Section */
 .featured-section {
     background-color: #ffffff;
@@ -92,13 +90,29 @@
         height: 250px;
         object-fit: cover;
     }
-
-/* CTA Section */
-.cta-section {
-    background: linear-gradient(135deg, #0066cc, #003366);
+.property-row-wrapper {
+    position: relative;
 }
 
-.btn-light {
-    border-radius: 50px;
-    padding: 12px 32px;
+.property-row {
+    display: flex;
+    gap: 1rem;
+    scroll-behavior: smooth;
 }
+
+.scroll-icon {
+    position: absolute;
+    top: 50%;
+    right: 10px;
+    transform: translateY(-50%);
+    background: rgba(0,0,0,0.2);
+    color: white;
+    padding: 8px;
+    border-radius: 50%;
+    cursor: pointer;
+    z-index: 10;
+}
+
+    .scroll-icon:hover {
+        background: rgba(0,0,0,0.5);
+    }

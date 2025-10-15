@@ -1,0 +1,41 @@
+﻿/* Admin Page Styling */
+/* Hero section behind navbar */
+.admin-hero-section {
+    position: relative;
+    min-height: 400px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background-image: url('../images/admin-banner.jpg'); /* Optional banner image */
+    background-size: cover;
+    background-position: center;
+    background-attachment: fixed;
+    top: -70px; /* Move behind navbar */
+    padding-top: 70px; /* Keep content aligned */
+}
+
+.admin-hero-overlay {
+    position: absolute;
+    inset: 0;
+    background: rgba(0, 60, 130, 0.6); /* Dark overlay for readability */
+    z-index: 1;
+}
+
+.admin-hero-section .container {
+    position: relative;
+    z-index: 2;
+    text-align: center;
+}
+
+.card {
+    border-radius: 10px;
+}
+
+.table th {
+    background-color: #007bff;
+    color: white;
+}
+
+.btn {
+    border-radius: 25px;
+}

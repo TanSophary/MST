@@ -2,6 +2,13 @@
 @inject SignInManager<Users> signInManager;
 
 <ul class="navbar-nav ms-auto align-items-center text-light">
+    <li class="nav-item me-2">
+        <a href="https://t.me/mean_sothy"
+           target="_blank"
+           class="btn btn-outline-info px-3 py-1"
+           style="border-radius: 25px;">Contact Us</a>
+    </li>
+
     @if (signInManager.IsSignedIn(User))
     {
         <li class="nav-item">

@@ -2,6 +2,140 @@
     ViewData["Title"] = "Admin Page";
 }
 
-<div class="text-center">
-    <h1 class="disply-4">Welcome to Admin Page</h1>
+<link href="~/css/admin.css" rel="stylesheet" />
+<!-- Hero Section Behind Navbar -->
+<section class="admin-hero-section d-flex align-items-center text-white">
+    <div class="admin-hero-overlay"></div>
+    <div class="container text-center position-relative z-2">
+        <h1 class="display-5 fw-bold mb-2">Welcome to Admin Page</h1>
+        <p class="lead">Manage projects, updates, and more from one place.</p>
+    </div>
+</section>
+<div class="container py-5">
+    <h2 class="text-center mb-4 fw-bold">Admin Project Management</h2>
+
+    <!-- ✅ Add / Update Form -->
+    <div class="card mb-5 p-4 shadow-sm">
+        <h5 class="mb-3 fw-semibold">Add / Update Project</h5>
+        <form id="projectForm">
+            <div class="row mb-3">
+                <div class="col-md-6">
+                    <label class="form-label">Project Name</label>
+                    <input type="text" id="projectName" class="form-control" placeholder="Enter project name" required />
+                </div>
+                <div class="col-md-6">
+                    <label class="form-label">Location</label>
+                    <input type="text" id="projectLocation" class="form-control" placeholder="Enter location" required />
+                </div>
+            </div>
+            <div class="mb-3">
+                <label class="form-label">Status</label>
+                <select id="projectStatus" class="form-select">
+                    <option>Planned</option>
+                    <option>Ongoing</option>
+                    <option>Completed</option>
+                </select>
+            </div>
+            <button type="button" id="addBtn" class="btn btn-primary me-2">Add</button>
+            <button type="button" id="updateBtn" class="btn btn-warning me-2" disabled>Update</button>
+            <button type="reset" class="btn btn-secondary">Clear</button>
+        </form>
+    </div>
+
+    <!-- ✅ Table List -->
+    <div class="card p-4 shadow-sm">
+        <h5 class="mb-3 fw-semibold">Project List</h5>
+        <table class="table table-bordered align-middle text-center">
+            <thead class="table-light">
+                <tr>
+                    <th>#</th>
+                    <th>Project Name</th>
+                    <th>Location</th>
+                    <th>Status</th>
+                    <th>Actions</th>
+                </tr>
+            </thead>
+            <tbody id="projectTable">
+                <!-- Sample Rows -->
+                <tr>
+                    <td>1</td>
+                    <td>Highway Expansion</td>
+                    <td>Phnom Penh</td>
+                    <td>Ongoing</td>
+                    <td>
+                        <button class="btn btn-sm btn-warning editBtn">Edit</button>
+                        <button class="btn btn-sm btn-danger deleteBtn">Delete</button>
+                    </td>
+                </tr>
+                <tr>
+                    <td>2</td>
+                    <td>Bridge Construction</td>
+                    <td>Kampot</td>
+                    <td>Completed</td>
+                    <td>
+                        <button class="btn btn-sm btn-warning editBtn">Edit</button>
+                        <button class="btn btn-sm btn-danger deleteBtn">Delete</button>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
 </div>
+
+<script>
+    // Basic sample logic (client-side demo)
+    const table = document.getElementById("projectTable");
+    const nameInput = document.getElementById("projectName");
+    const locationInput = document.getElementById("projectLocation");
+    const statusInput = document.getElementById("projectStatus");
+    const addBtn = document.getElementById("addBtn");
+    const updateBtn = document.getElementById("updateBtn");
+    let editRow = null;
+
+    // Add new project
+    addBtn.addEventListener("click", () => {
+        if (!nameInput.value.trim() || !locationInput.value.trim()) return alert("Please fill all fields!");
+
+        const row = table.insertRow();
+        row.innerHTML = `
+            <td>${table.rows.length}</td>
+            <td>${nameInput.value}</td>
+            <td>${locationInput.value}</td>
+            <td>${statusInput.value}</td>
+            <td>
+                <button class="btn btn-sm btn-warning editBtn">Edit</button>
+                <button class="btn btn-sm btn-danger deleteBtn">Delete</button>
+            </td>
+        `;
+
+        nameInput.value = "";
+        locationInput.value = "";
+        statusInput.value = "Planned";
+    });
+
+    // Edit or delete row
+    table.addEventListener("click", (e) => {
+        if (e.target.classList.contains("deleteBtn")) {
+            e.target.closest("tr").remove();
+        }
+
+        if (e.target.classList.contains("editBtn")) {
+            editRow = e.target.closest("tr");
+            nameInput.value = editRow.cells[1].textContent;
+            locationInput.value = editRow.cells[2].textContent;
+            statusInput.value = editRow.cells[3].textContent;
+            updateBtn.disabled = false;
+        }
+    });
+
+    // Update selected row
+    updateBtn.addEventListener("click", () => {
+        if (!editRow) return;
+        editRow.cells[1].textContent = nameInput.value;
+        editRow.cells[2].textContent = locationInput.value;
+        editRow.cells[3].textContent = statusInput.value;
+        updateBtn.disabled = true;
+        editRow = null;
+        alert("Project updated successfully!");
+    });
+</script>

@@ -7,6 +7,7 @@
     <link rel="stylesheet" href="~/lib/bootstrap/dist/css/bootstrap.min.css" asp-append-version="true" />
     <link rel="stylesheet" href="~/css/site.css" asp-append-version="true" />
     <link rel="stylesheet" href="~/css/style.css" asp-append-version="true" />
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/7.0.1/css/all.min.css" rel="stylesheet" />
 </head>
 <body>
     <header>
@@ -20,6 +21,9 @@
                     <ul class="navbar-nav flex-grow-1">
                         <li class="nav-item">
                             <a class="nav-link" asp-area="" asp-controller="Home" asp-action="Index">Home</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" asp-area="" asp-controller="Home" asp-action="Service">Service</a>
                         </li>
                         <li class="nav-item">
                             <a class="nav-link" asp-area="" asp-controller="Home" asp-action="Privacy">Privacy</a>
@@ -45,15 +49,61 @@
     <main role="main" class="pb-3">
         @RenderBody()
     </main>
+    <footer class="footer-section text-white">
+        <div class="container py-5">
+            <div class="row">
+                <!-- Logo and description -->
+                <div class="col-md-3 mb-4">
+                    <div class="footer-logo d-flex align-items-center mb-3">
+                        <img src="~/images/logo.jpg" alt="Logo" width="40" class="me-2">
+                        <h5 class="m-0 fw-bold">CONCHITEC</h5>
+                    </div>
+                    <p class="text-light small">
+                        Helping industry through innovative construction technology.
+                    </p>
+                </div>
 
-    <footer>
-        <div class="container">
-            <p class="mb-0">&copy; 2025 - MST | Faculty of Engineering</p>
-            <small>
-                <a asp-area="" asp-controller="Home" asp-action="Privacy">Privacy</a> |
-                <a href="#">Contact</a> |
-                <a href="#">About</a>
-            </small>
+                <!-- Pages -->
+                <div class="col-md-3 mb-4">
+                    <h6 class="text-uppercase fw-bold text-orange mb-3">Pages</h6>
+                    <ul class="list-unstyled small">
+                        <li><a href="#" class="footer-link">About Us</a></li>
+                        <li><a href="#" class="footer-link">Project</a></li>
+                        <li><a href="#" class="footer-link">FAQs</a></li>
+                        <li><a href="#" class="footer-link">Contact Us</a></li>
+                    </ul>
+                </div>
+
+                <!-- Connect with us -->
+                <div class="col-md-3 mb-4">
+                    <h6 class="text-uppercase fw-bold text-orange mb-3">Connect With Us</h6>
+                    <ul class="list-unstyled small">
+                        <li><a href="#" class="footer-link">Pinterest</a></li>
+                        <li><a href="#" class="footer-link">LinkedIn</a></li>
+                        <li><a href="#" class="footer-link">Behance</a></li>
+                        <li><a href="#" class="footer-link">Dribbble</a></li>
+                        <li><a href="#" class="footer-link">Twitter</a></li>
+                    </ul>
+                </div>
+
+                <!-- Contact -->
+                <div class="col-md-3 mb-4">
+                    <h6 class="fw-bold text-orange">PHONE NUMBER</h6>
+                    <p class="mb-1 fw-bold">(09)765438082</p>
+                    <h6 class="fw-bold text-orange mt-3">EMAIL</h6>
+                    <p class="fw-bold mb-2">MAIL@CONCHITEC.ID</p>
+                    <p class="small text-light mb-3">
+                        Lorem ipsum dolor sit amet, consectetur adipiscing elit.
+                    </p>
+                    <a href="#" class="btn btn-outline-light btn-sm rounded-pill px-3">Read More</a>
+                </div>
+            </div>
+        </div>
+
+        <div class="footer-bottom text-center py-3 mt-4 border-top border-secondary small">
+            <p class="mb-1">© 2025 Conchitec. All rights reserved.</p>
+            <a href="#" class="footer-link me-2">Privacy Policy</a> |
+            <a href="#" class="footer-link ms-2">Terms of Services</a>
         </div>
     </footer>
 

@@ -1,6 +1,5 @@
 ﻿// Controllers/AlertController.cs
 using Microsoft.AspNetCore.Mvc;
-using MST.Models;
 using Telegram.Bot;
 using Telegram.Bot.Types;
 using MST.Models;

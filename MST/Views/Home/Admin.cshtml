@@ -1,150 +1,8 @@
-﻿@* @{ *@
-@*     ViewData["Title"] = "Admin Page"; *@
-@* } *@
-
-@* <link href="~/css/admin.css" rel="stylesheet" /> *@
-@* <!-- Hero Section Behind Navbar --> *@
-@* <section class="admin-hero-section d-flex align-items-center text-white"> *@
-@*     <div class="admin-hero-overlay"></div> *@
-@*     <div class="container text-center position-relative z-2"> *@
-@*         <h1 class="display-5 fw-bold mb-2">Welcome to Admin Page</h1> *@
-@*         <p class="lead">Manage projects, updates, and more from one place.</p> *@
-@*     </div> *@
-@* </section> *@
-@* <div class="container py-5"> *@
-@*     <h2 class="text-center mb-4 fw-bold">Admin Project Management</h2> *@
-
-@*     <!-- ✅ Add / Update Form --> *@
-@*     <div class="card mb-5 p-4 shadow-sm"> *@
-@*         <h5 class="mb-3 fw-semibold">Add / Update Project</h5> *@
-@*         <form id="projectForm"> *@
-@*             <div class="row mb-3"> *@
-@*                 <div class="col-md-6"> *@
-@*                     <label class="form-label">Project Name</label> *@
-@*                     <input type="text" id="projectName" class="form-control" placeholder="Enter project name" required /> *@
-@*                 </div> *@
-@*                 <div class="col-md-6"> *@
-@*                     <label class="form-label">Location</label> *@
-@*                     <input type="text" id="projectLocation" class="form-control" placeholder="Enter location" required /> *@
-@*                 </div> *@
-@*             </div> *@
-@*             <div class="mb-3"> *@
-@*                 <label class="form-label">Status</label> *@
-@*                 <select id="projectStatus" class="form-select"> *@
-@*                     <option>Planned</option> *@
-@*                     <option>Ongoing</option> *@
-@*                     <option>Completed</option> *@
-@*                 </select> *@
-@*             </div> *@
-@*             <button type="button" id="addBtn" class="btn btn-primary me-2">Add</button> *@
-@*             <button type="button" id="updateBtn" class="btn btn-warning me-2" disabled>Update</button> *@
-@*             <button type="reset" class="btn btn-secondary">Clear</button> *@
-@*         </form> *@
-@*     </div> *@
-
-@*     <!-- ✅ Table List --> *@
-@*     <div class="card p-4 shadow-sm"> *@
-@*         <h5 class="mb-3 fw-semibold">Project List</h5> *@
-@*         <table class="table table-bordered align-middle text-center"> *@
-@*             <thead class="table-light"> *@
-@*                 <tr> *@
-@*                     <th>#</th> *@
-@*                     <th>Project Name</th> *@
-@*                     <th>Location</th> *@
-@*                     <th>Status</th> *@
-@*                     <th>Actions</th> *@
-@*                 </tr> *@
-@*             </thead> *@
-@*             <tbody id="projectTable"> *@
-@*                 <!-- Sample Rows --> *@
-@*                 <tr> *@
-@*                     <td>1</td> *@
-@*                     <td>Highway Expansion</td> *@
-@*                     <td>Phnom Penh</td> *@
-@*                     <td>Ongoing</td> *@
-@*                     <td> *@
-@*                         <button class="btn btn-sm btn-warning editBtn">Edit</button> *@
-@*                         <button class="btn btn-sm btn-danger deleteBtn">Delete</button> *@
-@*                     </td> *@
-@*                 </tr> *@
-@*                 <tr> *@
-@*                     <td>2</td> *@
-@*                     <td>Bridge Construction</td> *@
-@*                     <td>Kampot</td> *@
-@*                     <td>Completed</td> *@
-@*                     <td> *@
-@*                         <button class="btn btn-sm btn-warning editBtn">Edit</button> *@
-@*                         <button class="btn btn-sm btn-danger deleteBtn">Delete</button> *@
-@*                     </td> *@
-@*                 </tr> *@
-@*             </tbody> *@
-@*         </table> *@
-@*     </div> *@
-@* </div> *@
-
-@* <script> *@
-@*     // Basic sample logic (client-side demo) *@
-@*     const table = document.getElementById("projectTable"); *@
-@*     const nameInput = document.getElementById("projectName"); *@
-@*     const locationInput = document.getElementById("projectLocation"); *@
-@*     const statusInput = document.getElementById("projectStatus"); *@
-@*     const addBtn = document.getElementById("addBtn"); *@
-@*     const updateBtn = document.getElementById("updateBtn"); *@
-@*     let editRow = null; *@
-
-@*     // Add new project *@
-@*     addBtn.addEventListener("click", () => { *@
-@*         if (!nameInput.value.trim() || !locationInput.value.trim()) return alert("Please fill all fields!"); *@
-
-@*         const row = table.insertRow(); *@
-@*         row.innerHTML = ` *@
-@*             <td>${table.rows.length}</td> *@
-@*             <td>${nameInput.value}</td> *@
-@*             <td>${locationInput.value}</td> *@
-@*             <td>${statusInput.value}</td> *@
-@*             <td> *@
-@*                 <button class="btn btn-sm btn-warning editBtn">Edit</button> *@
-@*                 <button class="btn btn-sm btn-danger deleteBtn">Delete</button> *@
-@*             </td> *@
-@*         `; *@
-
-@*         nameInput.value = ""; *@
-@*         locationInput.value = ""; *@
-@*         statusInput.value = "Planned"; *@
-@*     }); *@
-
-@*     // Edit or delete row *@
-@*     table.addEventListener("click", (e) => { *@
-@*         if (e.target.classList.contains("deleteBtn")) { *@
-@*             e.target.closest("tr").remove(); *@
-@*         } *@
-
-@*         if (e.target.classList.contains("editBtn")) { *@
-@*             editRow = e.target.closest("tr"); *@
-@*             nameInput.value = editRow.cells[1].textContent; *@
-@*             locationInput.value = editRow.cells[2].textContent; *@
-@*             statusInput.value = editRow.cells[3].textContent; *@
-@*             updateBtn.disabled = false; *@
-@*         } *@
-@*     }); *@
-
-@*     // Update selected row *@
-@*     updateBtn.addEventListener("click", () => { *@
-@*         if (!editRow) return; *@
-@*         editRow.cells[1].textContent = nameInput.value; *@
-@*         editRow.cells[2].textContent = locationInput.value; *@
-@*         editRow.cells[3].textContent = statusInput.value; *@
-@*         updateBtn.disabled = true; *@
-@*         editRow = null; *@
-@*         alert("Project updated successfully!"); *@
-@*     }); *@
-@* </script> *@
-@{
+﻿@{
     ViewData["Title"] = "Admin Page";
 }
-
 <link href="~/css/admin.css" rel="stylesheet" />
-<!-- Hero Section Behind Navbar -->
+
 <section class="admin-hero-section d-flex align-items-center text-white">
     <div class="admin-hero-overlay"></div>
     <div class="container text-center position-relative z-2">
@@ -152,6 +10,7 @@
         <p class="lead">Manage projects, updates, and more from one place.</p>
     </div>
 </section>
+
 <div class="container py-5">
     <h2 class="text-center mb-4 fw-bold">Admin Project Management</h2>
 
@@ -159,11 +18,24 @@
     <div class="card mb-5 p-4 shadow-sm">
         <h5 class="mb-3 fw-semibold">Add / Update Project</h5>
         <form id="projectForm" enctype="multipart/form-data">
+            @Html.AntiForgeryToken()
+            <div class="row mb-3">
+                <div class="col-md-6">
+                    <label class="form-label">Start Date</label>
+                    <input type="date" id="projectStartDate" name="StartDate" class="form-control" />
+                </div>
+                <div class="col-md-6">
+                    <label class="form-label">End Date</label>
+                    <input type="date" id="projectEndDate" name="EndDate" class="form-control" />
+                </div>
+            </div>
+
             <div class="row mb-3">
                 <div class="col-md-6">
                     <label class="form-label">Project Name</label>
                     <input type="text" id="projectName" name="Name" class="form-control" placeholder="Enter project name" required />
-                    <input type="hidden" id="projectId" name="Id" />
+                    <!-- NOTE: hidden id has no name by default; we add name="Id" only when editing -->
+                    <input type="hidden" id="projectId" />
                 </div>
                 <div class="col-md-6">
                     <label class="form-label">Location</label>
@@ -176,7 +48,7 @@
             </div>
             <div class="mb-3">
                 <label class="form-label">Status</label>
-                <select id="projectStatus" name="Status" class="form-select">
+                <select id="projectStatus" name="Status" class="form-select" required>
                     <option value="Planned">Planned</option>
                     <option value="Ongoing">Ongoing</option>
                     <option value="Completed">Completed</option>
@@ -185,10 +57,12 @@
             <div class="mb-3">
                 <label class="form-label">Project Image</label>
                 <input type="file" id="projectImage" name="Image" class="form-control" accept="image/*" />
+                <div id="imagePreview" class="mt-2"></div>
             </div>
+
             <button type="button" id="addBtn" class="btn btn-primary me-2">Add</button>
             <button type="button" id="updateBtn" class="btn btn-warning me-2" disabled>Update</button>
-            <button type="reset" class="btn btn-secondary">Clear</button>
+            <button type="reset" id="clearBtn" class="btn btn-secondary">Clear</button>
         </form>
     </div>
 
@@ -203,20 +77,20 @@
                     <th>Location</th>
                     <th>Description</th>
                     <th>Status</th>
-                    <th>Create Date</th>
+                    <th>Start Date</th>
+                    <th>End Date</th>
                     <th>Image</th>
                     <th>Actions</th>
                 </tr>
             </thead>
             <tbody id="projectTable">
-                <!-- Dynamic rows will be populated here -->
+                <!-- rows -->
             </tbody>
         </table>
     </div>
 </div>
 
 <script>
-    // Client-side logic for CRUD operations
     const table = document.getElementById("projectTable");
     const form = document.getElementById("projectForm");
     const nameInput = document.getElementById("projectName");
@@ -227,108 +101,197 @@
     const addBtn = document.getElementById("addBtn");
     const updateBtn = document.getElementById("updateBtn");
     const idInput = document.getElementById("projectId");
-    let editRow = null;
+    const clearBtn = document.getElementById("clearBtn");
+    const startDateInput = document.getElementById("projectStartDate");
+    const endDateInput = document.getElementById("projectEndDate");
 
-    // Fetch and display projects
+
+    // Grab antiforgery token value (for header)
+    function getAntiforgeryToken() {
+        const tokenInput = document.querySelector('input[name="__RequestVerificationToken"]');
+        return tokenInput ? tokenInput.value : '';
+    }
+
+    // Load projects
     async function loadProjects() {
         const response = await fetch('/Project/GetProjects');
         const projects = await response.json();
         table.innerHTML = '';
         projects.forEach((project, index) => {
-            const row = table.insertRow();
-            row.innerHTML = `
+            const tr = document.createElement('tr');
+            tr.innerHTML = `
                 <td>${index + 1}</td>
-                <td>${project.name}</td>
-                <td>${project.location}</td>
-                <td>${project.description || 'No description'}</td>
-                <td>${project.status}</td>
-                <td>${new Date(project.createDate).toLocaleDateString()}</td>
+                <td>${escapeHtml(project.name)}</td>
+                <td>${escapeHtml(project.location)}</td>
+                <td>${project.description ? escapeHtml(project.description) : 'No description'}</td>
+                <td>${escapeHtml(project.status)}</td>
+                <td>${project.startDate ? new Date(project.startDate).toLocaleDateString() : ''}</td>
+                <td>${project.endDate ? new Date(project.endDate).toLocaleDateString() : ''}</td>
                 <td>${project.imagePath ? `<img src="/Uploads/${project.imagePath}" alt="Project Image" width="100" />` : 'No image'}</td>
                 <td>
                     <button class="btn btn-sm btn-warning editBtn" data-id="${project.id}">Edit</button>
                     <button class="btn btn-sm btn-danger deleteBtn" data-id="${project.id}">Delete</button>
                 </td>
             `;
+            table.appendChild(tr);
         });
     }
 
-    // Add new project
+    function escapeHtml(unsafe) {
+        if (unsafe === null || unsafe === undefined) return '';
+        return String(unsafe)
+            .replace(/&/g, "&amp;")
+            .replace(/</g, "&lt;")
+            .replace(/>/g, "&gt;")
+            .replace(/"/g, "&quot;")
+            .replace(/'/g, "&#039;");
+    }
+
+    // Clear form helper — also remove name attribute from hidden id so we don't post empty Id
+    function clearForm() {
+        form.reset();
+        idInput.removeAttribute('name');
+        idInput.value = '';
+        updateBtn.disabled = true;
+        addBtn.disabled = false;
+        document.getElementById("imagePreview").innerHTML = "";
+        startDateInput.value = '';
+        endDateInput.value = '';
+    }
+
+    clearBtn.addEventListener('click', (e) => {
+        // default reset occurs; ensure hidden name removed
+        setTimeout(() => clearForm(), 0);
+    });
+
+    // Add project
     addBtn.addEventListener("click", async () => {
         if (!form.checkValidity()) {
             form.reportValidity();
             return;
         }
 
+        // ensure Id is not posted when adding
+        idInput.removeAttribute('name');
+
         const formData = new FormData(form);
+
         const response = await fetch('/Project/AddProject', {
             method: 'POST',
+            headers: {
+                'RequestVerificationToken': getAntiforgeryToken()
+            },
             body: formData
         });
 
         if (response.ok) {
-            form.reset();
-            loadProjects();
+            clearForm();
+            await loadProjects();
             alert("Project added successfully!");
         } else {
-            alert("Error adding project!");
+            let errorText = "Error adding project!";
+            try {
+                const errorData = await response.json();
+                if (errorData.errors) errorText = errorData.errors.join(", ");
+                else if (errorData.error) errorText = errorData.error;
+            } catch { }
+            alert(errorText);
         }
     });
 
-    // Edit or delete row
-    table.addEventListener("click", async (e) => {
-        if (e.target.classList.contains("deleteBtn")) {
-            const id = e.target.dataset.id;
-            if (confirm("Are you sure you want to delete this project?")) {
-                const response = await fetch(`/Project/DeleteProject/${id}`, { method: 'DELETE' });
-                if (response.ok) {
-                    loadProjects();
-                    alert("Project deleted successfully!");
-                } else {
-                    alert("Error deleting project!");
-                }
-            }
-        }
-
-        if (e.target.classList.contains("editBtn")) {
-            editRow = e.target.closest("tr");
-            const id = e.target.dataset.id;
-            const response = await fetch(`/Project/GetProject/${id}`);
-            const project = await response.json();
-            idInput.value = project.id;
-            nameInput.value = project.name;
-            locationInput.value = project.location;
-            descriptionInput.value = project.description || '';
-            statusInput.value = project.status;
-            updateBtn.disabled = false;
-            addBtn.disabled = true;
-        }
-    });
-
-    // Update selected project
+    // Update project
     updateBtn.addEventListener("click", async () => {
         if (!form.checkValidity()) {
             form.reportValidity();
             return;
         }
 
+        // ensure Id has the name attribute so server binds it
+        idInput.setAttribute('name', 'Id');
+
         const formData = new FormData(form);
+
         const response = await fetch('/Project/UpdateProject', {
             method: 'POST',
+            headers: {
+                'RequestVerificationToken': getAntiforgeryToken()
+            },
             body: formData
         });
 
         if (response.ok) {
-            form.reset();
-            updateBtn.disabled = true;
-            addBtn.disabled = false;
-            editRow = null;
-            loadProjects();
+            clearForm();
+            await loadProjects();
             alert("Project updated successfully!");
         } else {
-            alert("Error updating project!");
+            let errorText = "Error updating project!";
+            try {
+                const err = await response.json();
+                if (err.errors) errorText = err.errors.join(", ");
+                else if (err.error) errorText = err.error;
+            } catch { }
+            alert(errorText);
         }
     });
 
-    // Load projects on page load
+    // Click handler for Edit/Delete (event delegation)
+    table.addEventListener('click', async (e) => {
+        const btn = e.target;
+        if (btn.classList.contains('editBtn')) {
+            const id = btn.getAttribute('data-id');
+            if (!id) return;
+            // fetch project details
+            const resp = await fetch(`/Project/GetProject?id=${id}`);
+            if (!resp.ok) {
+                alert('Failed to fetch project data');
+                return;
+            }
+            const project = await resp.json();
+            // populate form
+            startDateInput.value = project.startDate ? project.startDate.split('T')[0] : '';
+            endDateInput.value = project.endDate ? project.endDate.split('T')[0] : '';
+
+            nameInput.value = project.name || '';
+            locationInput.value = project.location || '';
+            descriptionInput.value = project.description || '';
+            statusInput.value = project.status || 'Planned';
+            // set hidden id and add name attribute so it will be posted for update
+            idInput.value = project.id;
+            idInput.setAttribute('name', 'Id');
+            addBtn.disabled = true;
+            updateBtn.disabled = false;
+
+            const imagePreview = document.getElementById("imagePreview");
+
+            if (project.imagePath) {
+                imagePreview.innerHTML = `
+                    <img src="/Uploads/${project.imagePath}"
+                         alt="Current Image"
+                         width="150"
+                         class="img-thumbnail mt-2" />
+                `;
+            } else {
+                imagePreview.innerHTML = `<p class="text-muted">No image uploaded</p>`;
+            }
+
+            // Scroll to form
+            window.scrollTo({ top: 0, behavior: 'smooth' });
+        } else if (btn.classList.contains('deleteBtn')) {
+            const id = btn.getAttribute('data-id');
+            if (!id) return;
+            if (!confirm('Delete this project?')) return;
+            const resp = await fetch(`/Project/DeleteProject?id=${id}`, {
+                method: 'DELETE'
+            });
+            if (resp.ok) {
+                await loadProjects();
+                alert('Project deleted');
+            } else {
+                alert('Failed to delete project');
+            }
+        }
+    });
+
+    // initial load
     loadProjects();
 </script>

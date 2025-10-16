@@ -9,9 +9,6 @@ namespace MST.Data
         public AppDbContext(DbContextOptions options) : base(options)
         {
         }
-
-        //protected AppDbContext()
-        //{
-        //}
+        public DbSet<Project> Projects { get; set; }
     }
 }

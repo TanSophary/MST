@@ -1,4 +1,145 @@
-﻿@{
+﻿@* @{ *@
+@*     ViewData["Title"] = "Admin Page"; *@
+@* } *@
+
+@* <link href="~/css/admin.css" rel="stylesheet" /> *@
+@* <!-- Hero Section Behind Navbar --> *@
+@* <section class="admin-hero-section d-flex align-items-center text-white"> *@
+@*     <div class="admin-hero-overlay"></div> *@
+@*     <div class="container text-center position-relative z-2"> *@
+@*         <h1 class="display-5 fw-bold mb-2">Welcome to Admin Page</h1> *@
+@*         <p class="lead">Manage projects, updates, and more from one place.</p> *@
+@*     </div> *@
+@* </section> *@
+@* <div class="container py-5"> *@
+@*     <h2 class="text-center mb-4 fw-bold">Admin Project Management</h2> *@
+
+@*     <!-- ✅ Add / Update Form --> *@
+@*     <div class="card mb-5 p-4 shadow-sm"> *@
+@*         <h5 class="mb-3 fw-semibold">Add / Update Project</h5> *@
+@*         <form id="projectForm"> *@
+@*             <div class="row mb-3"> *@
+@*                 <div class="col-md-6"> *@
+@*                     <label class="form-label">Project Name</label> *@
+@*                     <input type="text" id="projectName" class="form-control" placeholder="Enter project name" required /> *@
+@*                 </div> *@
+@*                 <div class="col-md-6"> *@
+@*                     <label class="form-label">Location</label> *@
+@*                     <input type="text" id="projectLocation" class="form-control" placeholder="Enter location" required /> *@
+@*                 </div> *@
+@*             </div> *@
+@*             <div class="mb-3"> *@
+@*                 <label class="form-label">Status</label> *@
+@*                 <select id="projectStatus" class="form-select"> *@
+@*                     <option>Planned</option> *@
+@*                     <option>Ongoing</option> *@
+@*                     <option>Completed</option> *@
+@*                 </select> *@
+@*             </div> *@
+@*             <button type="button" id="addBtn" class="btn btn-primary me-2">Add</button> *@
+@*             <button type="button" id="updateBtn" class="btn btn-warning me-2" disabled>Update</button> *@
+@*             <button type="reset" class="btn btn-secondary">Clear</button> *@
+@*         </form> *@
+@*     </div> *@
+
+@*     <!-- ✅ Table List --> *@
+@*     <div class="card p-4 shadow-sm"> *@
+@*         <h5 class="mb-3 fw-semibold">Project List</h5> *@
+@*         <table class="table table-bordered align-middle text-center"> *@
+@*             <thead class="table-light"> *@
+@*                 <tr> *@
+@*                     <th>#</th> *@
+@*                     <th>Project Name</th> *@
+@*                     <th>Location</th> *@
+@*                     <th>Status</th> *@
+@*                     <th>Actions</th> *@
+@*                 </tr> *@
+@*             </thead> *@
+@*             <tbody id="projectTable"> *@
+@*                 <!-- Sample Rows --> *@
+@*                 <tr> *@
+@*                     <td>1</td> *@
+@*                     <td>Highway Expansion</td> *@
+@*                     <td>Phnom Penh</td> *@
+@*                     <td>Ongoing</td> *@
+@*                     <td> *@
+@*                         <button class="btn btn-sm btn-warning editBtn">Edit</button> *@
+@*                         <button class="btn btn-sm btn-danger deleteBtn">Delete</button> *@
+@*                     </td> *@
+@*                 </tr> *@
+@*                 <tr> *@
+@*                     <td>2</td> *@
+@*                     <td>Bridge Construction</td> *@
+@*                     <td>Kampot</td> *@
+@*                     <td>Completed</td> *@
+@*                     <td> *@
+@*                         <button class="btn btn-sm btn-warning editBtn">Edit</button> *@
+@*                         <button class="btn btn-sm btn-danger deleteBtn">Delete</button> *@
+@*                     </td> *@
+@*                 </tr> *@
+@*             </tbody> *@
+@*         </table> *@
+@*     </div> *@
+@* </div> *@
+
+@* <script> *@
+@*     // Basic sample logic (client-side demo) *@
+@*     const table = document.getElementById("projectTable"); *@
+@*     const nameInput = document.getElementById("projectName"); *@
+@*     const locationInput = document.getElementById("projectLocation"); *@
+@*     const statusInput = document.getElementById("projectStatus"); *@
+@*     const addBtn = document.getElementById("addBtn"); *@
+@*     const updateBtn = document.getElementById("updateBtn"); *@
+@*     let editRow = null; *@
+
+@*     // Add new project *@
+@*     addBtn.addEventListener("click", () => { *@
+@*         if (!nameInput.value.trim() || !locationInput.value.trim()) return alert("Please fill all fields!"); *@
+
+@*         const row = table.insertRow(); *@
+@*         row.innerHTML = ` *@
+@*             <td>${table.rows.length}</td> *@
+@*             <td>${nameInput.value}</td> *@
+@*             <td>${locationInput.value}</td> *@
+@*             <td>${statusInput.value}</td> *@
+@*             <td> *@
+@*                 <button class="btn btn-sm btn-warning editBtn">Edit</button> *@
+@*                 <button class="btn btn-sm btn-danger deleteBtn">Delete</button> *@
+@*             </td> *@
+@*         `; *@
+
+@*         nameInput.value = ""; *@
+@*         locationInput.value = ""; *@
+@*         statusInput.value = "Planned"; *@
+@*     }); *@
+
+@*     // Edit or delete row *@
+@*     table.addEventListener("click", (e) => { *@
+@*         if (e.target.classList.contains("deleteBtn")) { *@
+@*             e.target.closest("tr").remove(); *@
+@*         } *@
+
+@*         if (e.target.classList.contains("editBtn")) { *@
+@*             editRow = e.target.closest("tr"); *@
+@*             nameInput.value = editRow.cells[1].textContent; *@
+@*             locationInput.value = editRow.cells[2].textContent; *@
+@*             statusInput.value = editRow.cells[3].textContent; *@
+@*             updateBtn.disabled = false; *@
+@*         } *@
+@*     }); *@
+
+@*     // Update selected row *@
+@*     updateBtn.addEventListener("click", () => { *@
+@*         if (!editRow) return; *@
+@*         editRow.cells[1].textContent = nameInput.value; *@
+@*         editRow.cells[2].textContent = locationInput.value; *@
+@*         editRow.cells[3].textContent = statusInput.value; *@
+@*         updateBtn.disabled = true; *@
+@*         editRow = null; *@
+@*         alert("Project updated successfully!"); *@
+@*     }); *@
+@* </script> *@
+@{
     ViewData["Title"] = "Admin Page";
 }
 
@@ -14,27 +155,36 @@
 <div class="container py-5">
     <h2 class="text-center mb-4 fw-bold">Admin Project Management</h2>
 
-    <!-- ✅ Add / Update Form -->
+    <!-- Add / Update Form -->
     <div class="card mb-5 p-4 shadow-sm">
         <h5 class="mb-3 fw-semibold">Add / Update Project</h5>
-        <form id="projectForm">
+        <form id="projectForm" enctype="multipart/form-data">
             <div class="row mb-3">
                 <div class="col-md-6">
                     <label class="form-label">Project Name</label>
-                    <input type="text" id="projectName" class="form-control" placeholder="Enter project name" required />
+                    <input type="text" id="projectName" name="Name" class="form-control" placeholder="Enter project name" required />
+                    <input type="hidden" id="projectId" name="Id" />
                 </div>
                 <div class="col-md-6">
                     <label class="form-label">Location</label>
-                    <input type="text" id="projectLocation" class="form-control" placeholder="Enter location" required />
+                    <input type="text" id="projectLocation" name="Location" class="form-control" placeholder="Enter location" required />
                 </div>
             </div>
             <div class="mb-3">
+                <label class="form-label">Description</label>
+                <textarea id="projectDescription" name="Description" class="form-control" placeholder="Enter project description" rows="4"></textarea>
+            </div>
+            <div class="mb-3">
                 <label class="form-label">Status</label>
-                <select id="projectStatus" class="form-select">
-                    <option>Planned</option>
-                    <option>Ongoing</option>
-                    <option>Completed</option>
+                <select id="projectStatus" name="Status" class="form-select">
+                    <option value="Planned">Planned</option>
+                    <option value="Ongoing">Ongoing</option>
+                    <option value="Completed">Completed</option>
                 </select>
+            </div>
+            <div class="mb-3">
+                <label class="form-label">Project Image</label>
+                <input type="file" id="projectImage" name="Image" class="form-control" accept="image/*" />
             </div>
             <button type="button" id="addBtn" class="btn btn-primary me-2">Add</button>
             <button type="button" id="updateBtn" class="btn btn-warning me-2" disabled>Update</button>
@@ -42,7 +192,7 @@
         </form>
     </div>
 
-    <!-- ✅ Table List -->
+    <!-- Table List -->
     <div class="card p-4 shadow-sm">
         <h5 class="mb-3 fw-semibold">Project List</h5>
         <table class="table table-bordered align-middle text-center">
@@ -51,91 +201,134 @@
                     <th>#</th>
                     <th>Project Name</th>
                     <th>Location</th>
+                    <th>Description</th>
                     <th>Status</th>
+                    <th>Create Date</th>
+                    <th>Image</th>
                     <th>Actions</th>
                 </tr>
             </thead>
             <tbody id="projectTable">
-                <!-- Sample Rows -->
-                <tr>
-                    <td>1</td>
-                    <td>Highway Expansion</td>
-                    <td>Phnom Penh</td>
-                    <td>Ongoing</td>
-                    <td>
-                        <button class="btn btn-sm btn-warning editBtn">Edit</button>
-                        <button class="btn btn-sm btn-danger deleteBtn">Delete</button>
-                    </td>
-                </tr>
-                <tr>
-                    <td>2</td>
-                    <td>Bridge Construction</td>
-                    <td>Kampot</td>
-                    <td>Completed</td>
-                    <td>
-                        <button class="btn btn-sm btn-warning editBtn">Edit</button>
-                        <button class="btn btn-sm btn-danger deleteBtn">Delete</button>
-                    </td>
-                </tr>
+                <!-- Dynamic rows will be populated here -->
             </tbody>
         </table>
     </div>
 </div>
 
 <script>
-    // Basic sample logic (client-side demo)
+    // Client-side logic for CRUD operations
     const table = document.getElementById("projectTable");
+    const form = document.getElementById("projectForm");
     const nameInput = document.getElementById("projectName");
     const locationInput = document.getElementById("projectLocation");
+    const descriptionInput = document.getElementById("projectDescription");
     const statusInput = document.getElementById("projectStatus");
+    const imageInput = document.getElementById("projectImage");
     const addBtn = document.getElementById("addBtn");
     const updateBtn = document.getElementById("updateBtn");
+    const idInput = document.getElementById("projectId");
     let editRow = null;
 
+    // Fetch and display projects
+    async function loadProjects() {
+        const response = await fetch('/Project/GetProjects');
+        const projects = await response.json();
+        table.innerHTML = '';
+        projects.forEach((project, index) => {
+            const row = table.insertRow();
+            row.innerHTML = `
+                <td>${index + 1}</td>
+                <td>${project.name}</td>
+                <td>${project.location}</td>
+                <td>${project.description || 'No description'}</td>
+                <td>${project.status}</td>
+                <td>${new Date(project.createDate).toLocaleDateString()}</td>
+                <td>${project.imagePath ? `<img src="/Uploads/${project.imagePath}" alt="Project Image" width="100" />` : 'No image'}</td>
+                <td>
+                    <button class="btn btn-sm btn-warning editBtn" data-id="${project.id}">Edit</button>
+                    <button class="btn btn-sm btn-danger deleteBtn" data-id="${project.id}">Delete</button>
+                </td>
+            `;
+        });
+    }
+
     // Add new project
-    addBtn.addEventListener("click", () => {
-        if (!nameInput.value.trim() || !locationInput.value.trim()) return alert("Please fill all fields!");
+    addBtn.addEventListener("click", async () => {
+        if (!form.checkValidity()) {
+            form.reportValidity();
+            return;
+        }
 
-        const row = table.insertRow();
-        row.innerHTML = `
-            <td>${table.rows.length}</td>
-            <td>${nameInput.value}</td>
-            <td>${locationInput.value}</td>
-            <td>${statusInput.value}</td>
-            <td>
-                <button class="btn btn-sm btn-warning editBtn">Edit</button>
-                <button class="btn btn-sm btn-danger deleteBtn">Delete</button>
-            </td>
-        `;
+        const formData = new FormData(form);
+        const response = await fetch('/Project/AddProject', {
+            method: 'POST',
+            body: formData
+        });
 
-        nameInput.value = "";
-        locationInput.value = "";
-        statusInput.value = "Planned";
+        if (response.ok) {
+            form.reset();
+            loadProjects();
+            alert("Project added successfully!");
+        } else {
+            alert("Error adding project!");
+        }
     });
 
     // Edit or delete row
-    table.addEventListener("click", (e) => {
+    table.addEventListener("click", async (e) => {
         if (e.target.classList.contains("deleteBtn")) {
-            e.target.closest("tr").remove();
+            const id = e.target.dataset.id;
+            if (confirm("Are you sure you want to delete this project?")) {
+                const response = await fetch(`/Project/DeleteProject/${id}`, { method: 'DELETE' });
+                if (response.ok) {
+                    loadProjects();
+                    alert("Project deleted successfully!");
+                } else {
+                    alert("Error deleting project!");
+                }
+            }
         }
 
         if (e.target.classList.contains("editBtn")) {
             editRow = e.target.closest("tr");
-            nameInput.value = editRow.cells[1].textContent;
-            locationInput.value = editRow.cells[2].textContent;
-            statusInput.value = editRow.cells[3].textContent;
+            const id = e.target.dataset.id;
+            const response = await fetch(`/Project/GetProject/${id}`);
+            const project = await response.json();
+            idInput.value = project.id;
+            nameInput.value = project.name;
+            locationInput.value = project.location;
+            descriptionInput.value = project.description || '';
+            statusInput.value = project.status;
             updateBtn.disabled = false;
+            addBtn.disabled = true;
         }
     });
 
-    // Update selected row
-    updateBtn.addEventListener("click", () => {
-        if (!editRow) return;
-        editRow.cells[1].textContent = nameInput.value;
-        editRow.cells[2].textContent = locationInput.value;
-        editRow.cells[3].textContent = statusInput.value;
-        updateBtn.disabled = true;
-        editRow = null;
-        alert("Project updated successfully!");
+    // Update selected project
+    updateBtn.addEventListener("click", async () => {
+        if (!form.checkValidity()) {
+            form.reportValidity();
+            return;
+        }
+
+        const formData = new FormData(form);
+        const response = await fetch('/Project/UpdateProject', {
+            method: 'POST',
+            body: formData
+        });
+
+        if (response.ok) {
+            form.reset();
+            updateBtn.disabled = true;
+            addBtn.disabled = false;
+            editRow = null;
+            loadProjects();
+            alert("Project updated successfully!");
+        } else {
+            alert("Error updating project!");
+        }
     });
+
+    // Load projects on page load
+    loadProjects();
 </script>

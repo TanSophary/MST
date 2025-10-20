@@ -1,187 +1,323 @@
-﻿@* @{ *@
-@*     ViewData["Title"] = "Home"; *@
-@* } *@
-@* <link href="~/css/home.css" rel="stylesheet" asp-append-version="true" /> *@
-
-@* <!-- Hero Content Section --> *@
-@* <section class="hero-section d-flex align-items-center"> *@
-@*     <div class="hero-overlay"></div> *@
-@*     <div class="container text-white position-relative z-2"> *@
-@*         <div class="hero-content"> *@
-@*             <h1 class="display-4 fw-bold">Find Your Perfect Home</h1> *@
-@*             <p class="lead mb-4"> *@
-@*                 Explore premium properties for sale and rent, tailored to your lifestyle. *@
-@*             </p> *@
-@*             <div class="search-bar d-flex align-items-center"> *@
-@*                 <select class="form-select me-2"> *@
-@*                     <option>Industrial House</option> *@
-@*                     <option>Apartment</option> *@
-@*                     <option>Villa</option> *@
-@*                 </select> *@
-@*                 <select class="form-select me-2"> *@
-@*                     <option>New York</option> *@
-@*                     <option>London</option> *@
-@*                     <option>Paris</option> *@
-@*                 </select> *@
-@*                 <button class="btn btn-primary px-4">Search</button> *@
-@*             </div> *@
-@*         </div> *@
-@*     </div> *@
-@* </section> *@
-
-@* <!-- Features Section --> *@
-@* <section class="features-section py-5 text-center"> *@
-@*     <div class="container"> *@
-@*         <h2 class="fw-bold mb-4">Built to help you find a place to live</h2> *@
-@*         <p class="text-muted mb-5">Helping you find your dream home through our website and global offices.</p> *@
-@*         <div class="row"> *@
-@*             <div class="col-md-4 mb-3"> *@
-@*                 <div class="feature-card p-4"> *@
-@*                     <h3 class="fw-bold text-primary">200+</h3> *@
-@*                     <p>Apartment Sales</p> *@
-@*                 </div> *@
-@*             </div> *@
-@*             <div class="col-md-4 mb-3"> *@
-@*                 <div class="feature-card p-4"> *@
-@*                     <h3 class="fw-bold text-primary">180+</h3> *@
-@*                     <p>Completed Projects</p> *@
-@*                 </div> *@
-@*             </div> *@
-@*             <div class="col-md-4 mb-3"> *@
-@*                 <div class="feature-card p-4"> *@
-@*                     <h3 class="fw-bold text-primary">9.8k+</h3> *@
-@*                     <p>Happy Clients</p> *@
-@*                 </div> *@
-@*             </div> *@
-@*         </div> *@
-@*     </div> *@
-@* </section> *@
-@* <section class="featured-section py-5"> *@
-@*     <div class="container"> *@
-@*         <h2 class="fw-bold mb-4 text-center">Introducing Our Featured Properties</h2> *@
-@*         <div class="property-row-wrapper position-relative"> *@
-@*             <div class="row g-4 property-row flex-nowrap overflow-auto"> *@
-@*                 <div class="col-md-4"> *@
-@*                     <div class="property-card"> *@
-@*                         <img src="~/images/test2.jpg" alt="House 1"> *@
-@*                         <div class="p-3"> *@
-@*                             <h5 class="fw-bold">Elegant House</h5> *@
-@*                             <p class="text-muted">$1,200,000 • New York</p> *@
-@*                         </div> *@
-@*                     </div> *@
-@*                 </div> *@
-@*                 <div class="col-md-4"> *@
-@*                     <div class="property-card"> *@
-@*                         <img src="~/images/test2.jpg" alt="House 2"> *@
-@*                         <div class="p-3"> *@
-@*                             <h5 class="fw-bold">Luxury Apartment</h5> *@
-@*                             <p class="text-muted">$950,000 • London</p> *@
-@*                         </div> *@
-@*                     </div> *@
-@*                 </div> *@
-@*                 <div class="col-md-4"> *@
-@*                     <div class="property-card"> *@
-@*                         <img src="~/images/test2.jpg" alt="House 3"> *@
-@*                         <div class="p-3"> *@
-@*                             <h5 class="fw-bold">Modern Villa</h5> *@
-@*                             <p class="text-muted">$1,500,000 • Paris</p> *@
-@*                         </div> *@
-@*                     </div> *@
-@*                 </div> *@
-@*                 <div class="col-md-4"> *@
-@*                     <div class="property-card"> *@
-@*                         <img src="~/images/test2.jpg" alt="House 3"> *@
-@*                         <div class="p-3"> *@
-@*                             <h5 class="fw-bold">Modern Villa</h5> *@
-@*                             <p class="text-muted">$1,500,000 • Paris</p> *@
-@*                         </div> *@
-@*                     </div> *@
-@*                 </div> *@
-@*                 <div class="col-md-4"> *@
-@*                     <div class="property-card"> *@
-@*                         <img src="~/images/test2.jpg" alt="House 3"> *@
-@*                         <div class="p-3"> *@
-@*                             <h5 class="fw-bold">Modern Villa</h5> *@
-@*                             <p class="text-muted">$1,500,000 • Paris</p> *@
-@*                         </div> *@
-@*                     </div> *@
-@*                 </div> *@
-@*                 <div class="col-md-4"> *@
-@*                     <div class="property-card"> *@
-@*                         <img src="~/images/test2.jpg" alt="House 3"> *@
-@*                         <div class="p-3"> *@
-@*                             <h5 class="fw-bold">Modern Villa</h5> *@
-@*                             <p class="text-muted">$1,500,000 • Paris</p> *@
-@*                         </div> *@
-@*                     </div> *@
-@*                 </div> *@
-@*             </div> *@
-@*             <!-- Right arrow icon --> *@
-@*             <div class="scroll-icon"> *@
-@*                 <i class="fas fa-angle-double-right"></i> *@
-@*             </div> *@
-@*         </div> *@
-@*     </div> *@
-@* </section> *@
-@* <script> *@
-@*         document.querySelector('.scroll-icon').addEventListener('click', () => { *@
-@*         document.querySelector('.property-row').scrollBy({ left: 300, behavior: 'smooth' }); *@
-@*     }); *@
-@* </script> *@
-@{
+﻿@{
     ViewData["Title"] = "Home";
 }
 <link href="~/css/home.css" rel="stylesheet" asp-append-version="true" />
 
-<!-- Hero Content Section -->
-<section class="hero-section d-flex align-items-center">
-    <div class="hero-overlay"></div>
-    <div class="container text-white position-relative z-2">
-        <div class="hero-content">
-            <h1 class="display-4 fw-bold">Building the Future with Excellence</h1>
-            <p class="lead mb-4">
-                We deliver innovative engineering and construction solutions with quality, safety, and integrity.
-            </p>
-            <div class="search-bar d-flex align-items-center">
-                <select class="form-select me-2">
-                    <option>Building Construction</option>
-                    <option>Civil Engineering</option>
-                    <option>Industrial Projects</option>
-                </select>
-                <select class="form-select me-2">
-                    <option>Cambodia</option>
-                    <option>Thailand</option>
-                    <option>Vietnam</option>
-                </select>
-                <button class="btn btn-primary px-4">Explore</button>
-            </div>
+<!-- Slide Section -->
+<section class="hero-section"> 
+    <div class="hero-slider"> 
+        <div class="hero-slide" style="background-image: url('../images/test2.jpg')">
+        </div> <div class="hero-slide" style="background-image: url('../images/test3.jpg')">
+        </div> <div class="hero-slide" style="background-image: url('../images/test4.jpg')">
+        </div> 
+        <!-- Duplicate of the first slide --> 
+        <div class="hero-slide" style="background-image: url('../images/test2.jpg')"></div> 
+    </div> 
+    <!-- Navigation Arrows --> 
+        <div class="hero-nav hero-prev">&#10094;</div> 
+        <div class="hero-nav hero-next">&#10095;</div> 
+        <div class="hero-indicators"> 
+            <span class="indicator active" data-slide="0"></span> 
+            <span class="indicator" data-slide="1"></span> 
+            <span class="indicator" data-slide="2"></span> 
         </div>
-    </div>
 </section>
 
 <!-- Features Section -->
 <section class="features-section py-5 text-center">
     <div class="container">
-        <h2 class="fw-bold mb-4">Committed to Engineering Excellence</h2>
-        <p class="text-muted mb-5">Providing reliable construction and engineering services that build trust and innovation.</p>
+        <h1 class="fw-bold mb-4">Committed to Engineering Excellence</h1>
+        <p class="text-muted mb-5">
+            Delivering reliable construction and engineering solutions that build trust, innovation, and long-term value.
+        </p>
         <div class="row">
             <div class="col-md-4 mb-3">
                 <div class="feature-card p-4">
-                    <h3 class="fw-bold text-primary">350+</h3>
-                    <p>Completed Projects</p>
+                    <h3 class="fw-bold text-primary">200+</h3>
+                    <p>Successful Projects</p>
                 </div>
             </div>
             <div class="col-md-4 mb-3">
                 <div class="feature-card p-4">
-                    <h3 class="fw-bold text-primary">120+</h3>
+                    <h3 class="fw-bold text-primary">80+</h3>
                     <p>Professional Engineers</p>
                 </div>
             </div>
             <div class="col-md-4 mb-3">
                 <div class="feature-card p-4">
-                    <h3 class="fw-bold text-primary">15+</h3>
+                    <h3 class="fw-bold text-primary">10+</h3>
                     <p>Years of Experience</p>
                 </div>
+            </div>
+        </div>
+    </div>
+</section>
+<!-- About MST Company Section -->
+<section class="about-section py-5">
+    <div class="container">
+        <div class="row align-items-center">
+            <!-- Left Text Column -->
+            <div class="col-lg-6 mb-4 mb-lg-0">
+                <h5 class="fw-bold mb-3">Who We Are</h5>
+                <p>
+                    At MST Company, we focus on mutual success. Our flexibility to mobilize the right people ensures unique solutions,
+                    while our commitment to innovation delivers tangible value to your projects. Collaboration and expertise drive
+                    every project we undertake.
+                </p>
+                <p>
+                    Whether in buildings, civil infrastructure, or industrial projects, MST Company is a trusted full-service partner
+                    with a skilled network of professionals ready to deliver excellence across all markets.
+                </p>
+                <p>
+                    From advanced construction technologies to sustainable solutions, MST Company leads with over a decade of proven
+                    experience helping clients build long-lasting legacies.
+                </p>
+            </div>
+            <!-- Right Stats Column with Green Border Boxes -->
+            <div class="col-lg-6">
+                <div class="row text-center">
+                    <div class="col-4 mb-3">
+                        <div class="stat-box p-4">
+                            <h3 class="fw-bold text-primary">10</h3>
+                            <p>Years in Operation</p>
+                        </div>
+                    </div>
+                    <div class="col-4 mb-3">
+                        <div class="stat-box p-4">
+                            <h3 class="fw-bold text-primary">$1B+</h3>
+                            <p>Annual Project Volume</p>
+                        </div>
+                    </div>
+                    <div class="col-4 mb-3">
+                        <div class="stat-box p-4">
+                            <h3 class="fw-bold text-primary">#25</h3>
+                            <p>Industry Ranking</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+<!-- What We Do Section -->
+<section class="what-we-do-section py-5">
+    <div class="container">
+        <!-- Main Title -->
+        <h1 class="fw-bold text-center mb-5">Our Expertise in Construction</h1>
+
+        <div class="row align-items-center">
+            <!-- Left Image Column -->
+            <div class="col-lg-6 mb-4 mb-lg-0">
+                <div class="image-options mb-3 text-center">
+                    <button class="option-btn active"
+                            data-img="images/test2.jpg"
+                            data-text="MST Company delivers tailored construction and engineering services for buildings of all types, including residential, commercial, and institutional projects. Our team combines local expertise with global knowledge to provide efficient, safe, and sustainable solutions. We focus on innovation, precision, and reliability to ensure every project meets client expectations and exceeds industry standards.">
+                        Buildings
+                    </button>
+
+                    <button class="option-btn"
+                            data-img="images/test3.jpg"
+                            data-text="Our civil infrastructure projects encompass roads, bridges, highways, and public works, designed to enhance connectivity and improve communities. MST Company applies rigorous planning, advanced engineering, and sustainable construction practices to ensure every project is durable, safe, and environmentally responsible. We focus on long-term performance while meeting budgets and project timelines with precision and professionalism.">
+                        Civil Infrastructure
+                    </button>
+
+                    <button class="option-btn"
+                            data-img="images/test4.jpg"
+                            data-text="MST Company specializes in heavy industrial construction, including factories, warehouses, and energy facilities. We provide end-to-end solutions from design, planning, and structural engineering to construction management. Our team ensures compliance with safety standards, delivers innovative solutions, and applies global best practices to achieve efficiency, reliability, and quality outcomes for complex industrial projects.">
+                        Heavy Industrial
+                    </button>
+
+                    <button class="option-btn"
+                            data-img="images/test5.jpg"
+                            data-text="For specialized projects that require unique solutions, MST Company delivers creativity, innovation, and expertise. From custom facilities to highly technical construction challenges, we tailor every project to meet client-specific requirements. Our team combines advanced engineering, thorough planning, and hands-on project management to ensure timely delivery, exceptional quality, and safe, sustainable outcomes for even the most complex and demanding construction projects.">
+                        Special Projects
+                    </button>
+                </div>
+
+                <img id="what-we-do-img" src="images/test2.jpg" alt="MST Company Projects" class="img-fluid rounded">
+            </div>
+
+            <!-- Right Text Column -->
+            <div class="col-lg-6">
+                <span class="section-label">WHAT WE DO</span>
+                <h2 class="fw-bold mb-3">Innovative Solutions for Modern Construction</h2>
+                <p id="what-we-do-text" class="text-muted mb-4">
+                    MST Company delivers tailored construction and engineering services for buildings of all types, including residential, commercial, and institutional projects. Our team combines local expertise with global knowledge to provide efficient, safe, and sustainable solutions. We focus on innovation, precision, and reliability to ensure every project meets client expectations and exceeds industry standards.
+                </p>
+                <a href="#" class="learn-more">LEARN MORE</a>
+            </div>
+        </div>
+    </div>
+</section>
+<!-- What We Build Section -->
+<section class="what-we-build-section py-5">
+    <div class="container">
+        <!-- Main Title -->
+        <h1 class="fw-bold text-center mb-5">What We Build</h1>
+
+        <div class="row g-4 align-items-center">
+            <!-- Left Image Column -->
+            <div class="col-lg-6">
+                <div class="build-image-wrapper position-relative">
+                    <img src="~/images/test3.jpg" alt="MST Construction Project" class="img-fluid rounded shadow-lg">
+                    <div class="build-image-overlay">
+                        <h3 class="fw-bold text-white">Building the Future</h3>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Right Text Column -->
+            <div class="col-lg-6">
+                <span class="section-label">OUR WORK</span>
+                <h2 class="fw-bold mb-3">Structures That Define Progress</h2>
+                <p class="text-muted mb-4">
+                    MST Company delivers construction excellence through innovation, precision, and commitment.
+                    Our portfolio includes residential towers, commercial complexes, industrial facilities, and
+                    public infrastructure projects that shape the landscape of Cambodia and beyond.
+                </p>
+
+                <ul class="list-unstyled mb-4">
+                    <li><i class="fas fa-check-circle text-primary me-2"></i> Modern Residential & Commercial Buildings</li>
+                    <li><i class="fas fa-check-circle text-primary me-2"></i> Civil & Infrastructure Engineering</li>
+                    <li><i class="fas fa-check-circle text-primary me-2"></i> Industrial & Energy Facilities</li>
+                    <li><i class="fas fa-check-circle text-primary me-2"></i> Sustainable & Smart Construction</li>
+                </ul>
+
+                <a href="#" class="learn-more">DISCOVER OUR PROJECTS</a>
+            </div>
+        </div>
+    </div>
+</section>
+<!-- Careers Section with Video -->
+<section class="careers-section py-5">
+    <div class="container">
+        <div class="row align-items-center mb-5">
+            <div class="col-lg-6">
+                <h1 class="fw-bold">Careers at MST Company</h1>
+                <p class="text-muted">Join a team that builds meaningful projects and grows with industry-leading training, benefits, and opportunities.</p>
+                <p class="text-muted">Watch our short company overview below to learn what it's like to work with us.</p>
+            </div>
+
+            <div class="col-lg-6">
+                <div class="video-card position-relative rounded shadow-sm overflow-hidden">
+                    <video id="careers-video" class="w-100" controls poster="~/images/careers-poster.jpg">
+                        <source src="~/videos/video1.mp4" type="video/mp4">
+                        Your browser does not support the video tag. Watch on
+                        <a href="https://www.youtube.com/watch?v=iYocA3_IV0Y&t=38s" target="_blank" rel="noopener">YouTube</a>.
+                    </video>
+                    <div class="video-caption text-center p-2 small text-muted">
+                        If you cannot play the video, download the <a href="~/videos/video1.mp4" download>MP4</a>.
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Open positions list -->
+        <div id="open-positions" class="open-positions">
+            <h2 class="fw-bold mb-4">Open Positions</h2>
+            <div class="row g-3">
+                <div class="col-md-6 col-lg-4">
+                    <div class="job-card p-3 rounded border h-100 d-flex flex-column">
+                        <div class="d-flex align-items-start mb-2">
+                            <div class="me-3"><i class="fas fa-building fa-2x text-primary"></i></div>
+                            <div>
+                                <h5 class="mb-0">Site Engineer</h5>
+                                <small class="text-muted">Phnom Penh • Full-time</small>
+                            </div>
+                        </div>
+                        <p class="text-muted small flex-grow-1">Lead on-site coordination, ensure QA/QC, and liaise with subcontractors. 5+ years experience in civil/structural projects preferred.</p>
+                    </div>
+                </div>
+
+                <div class="col-md-6 col-lg-4">
+                    <div class="job-card p-3 rounded border h-100 d-flex flex-column">
+                        <div class="d-flex align-items-start mb-2">
+                            <div class="me-3"><i class="fas fa-user-tie fa-2x text-primary"></i></div>
+                            <div>
+                                <h5 class="mb-0">Project Manager</h5>
+                                <small class="text-muted">Sihanoukville • Full-time</small>
+                            </div>
+                        </div>
+                        <p class="text-muted small flex-grow-1">Manage multi-discipline teams, deliver projects on time and budget, and report to senior leadership.</p>
+                    </div>
+                </div>
+
+                <div class="col-md-6 col-lg-4">
+                    <div class="job-card p-3 rounded border h-100 d-flex flex-column">
+                        <div class="d-flex align-items-start mb-2">
+                            <div class="me-3"><i class="fas fa-tools fa-2x text-primary"></i></div>
+                            <div>
+                                <h5 class="mb-0">Mechanical Technician</h5>
+                                <small class="text-muted">Kampot • Contract</small>
+                            </div>
+                        </div>
+                        <p class="text-muted small flex-grow-1">Install and maintain mechanical systems on industrial jobsites. Technical diploma required.</p>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- Our Owner Section -->
+<section class="our-owner-section py-5">
+    <div class="container">
+        <h1 class="fw-bold text-center mb-5">Our Owner</h1>
+
+        <div class="row align-items-center justify-content-center flex-lg-row-reverse">
+            <!-- Owner Image -->
+            <div class="col-lg-5 mb-4 mb-lg-0 text-center">
+                <div class="owner-photo-wrapper mx-auto shadow">
+                    <img src="~/images/test2.jpg"
+                         alt="Company Owner"
+                         class="img-fluid owner-photo rounded"
+                         style="width: 300px; height: 400px; object-fit: cover; border-radius: 10px;">
+                </div>
+            </div>
+
+            <!-- Owner Information -->
+            <div class="col-lg-6 text-center text-lg-start">
+                <h2 class="fw-bold mb-2">Mr. John Doe</h2>
+                <h5 class="text-primary mb-3">President & General Manager</h5>
+                <p class="text-muted mb-3">
+                    Mr. John Doe is the President and General Manager of MST Company. With over two decades of experience in
+                    construction management and strategic leadership, he has built MST into one of the most respected companies
+                    in the industry.
+                </p>
+                <p class="text-muted">
+                    His commitment to quality, safety, and client satisfaction drives the company’s mission to deliver excellence
+                    in every project across Cambodia.
+                </p>
+            </div>
+        </div>
+    </div>
+</section>
+<!-- Safety: A Way of Life Section -->
+<section class="safety-section py-5 bg-light">
+    <div class="container">
+        <h1 class="fw-bold text-center mb-5">Safety: A Way of Life</h1>
+
+        <div class="row align-items-center safety-row">
+            <!-- Safety Image -->
+            <div class="col-lg-6 mb-4 mb-lg-0 text-center">
+                <img src="~/images/test2.jpg"
+                     alt="Safety"
+                     class="img-fluid rounded shadow safety-img">
+            </div>
+
+            <!-- Safety Content -->
+            <div class="col-lg-6 text-center text-lg-start">
+                <h2 class="fw-bold mb-3">Our Commitment to Safety</h2>
+                <p class="text-muted mb-3">
+                    At MST Company, safety is not just a policy—it’s a way of life. Every project, every task, and every team member
+                    follows strict safety protocols to ensure the well-being of our employees, clients, and communities.
+                </p>
+                <p class="text-muted mb-4">
+                    We believe that a safe workplace drives efficiency, quality, and sustainability. Our safety-first culture
+                    ensures that everyone goes home safely at the end of the day.
+                </p>
+                <a href="#" class="learn-more">Learn More About Safety</a>
             </div>
         </div>
     </div>
@@ -255,9 +391,189 @@
         </div>
     </div>
 </section>
+<!-- Ready to Work Together Section -->
+<!-- Ready to Work Together Section -->
+<section class="ready-section py-5 position-relative">
+    <div class="container d-flex align-items-center justify-content-between flex-wrap">
+        <!-- Text Content -->
+        <div class="ready-text me-4">
+            <h1 class="fw-bold mb-3">Ready to work together?</h1>
+            <p class="mb-4 fs-5 text-muted">
+                Whether you have a project in mind and you’re looking for a reliable construction partner
+                or you’re looking to take the next step in your career, we want to hear from you!
+            </p>
+            <div class="d-flex gap-3 flex-wrap">
+                <a href="#project" class="btn btn-solid">Build a Project with Us</a>
+                <a href="#career" class="btn btn-outline">Build a Career with Us</a>
+            </div>
+        </div>
+
+        <!-- Decorative Shapes -->
+        <div class="shapes">
+            <span class="polygon-left"></span>
+            <span class="polygon-right"></span>
+        </div>
+    </div>
+</section>
 
 <script>
     document.querySelector('.scroll-icon').addEventListener('click', () => {
         document.querySelector('.property-row').scrollBy({ left: 300, behavior: 'smooth' });
     });
+
+    // Hero slider
+    const slider = document.querySelector('.hero-slider');
+    const slides = document.querySelectorAll('.hero-slide');
+    const indicators = document.querySelectorAll('.hero-indicators .indicator');
+    const totalSlides = indicators.length; 
+    let currentSlide = 0;
+    let isTransitioning = false;
+
+    function showSlide(index, direction = 'right') {
+        if (isTransitioning) return;
+        isTransitioning = true;
+        let displayIndex = index % totalSlides;
+        if (displayIndex < 0) displayIndex += totalSlides;
+        if (index === -1) {
+            slider.style.transition = 'none';
+            slider.style.transform = `translateX(-${totalSlides * 100}%)`;
+            currentSlide = totalSlides; 
+            requestAnimationFrame(() => {
+                slider.style.transition = 'transform 0.5s ease';
+                currentSlide = totalSlides - 1;
+                slider.style.transform = `translateX(-${currentSlide * 100}%)`;
+                updateIndicators();
+                setTimeout(() => {
+                    isTransitioning = false;
+                }, 500);
+            });
+            return;
+        }
+        if (index === totalSlides) {
+            slider.style.transition = 'transform 0.5s ease';
+            slider.style.transform = `translateX(-${totalSlides * 100}%)`;
+            setTimeout(() => {
+                slider.style.transition = 'none';
+                currentSlide = 0;
+                slider.style.transform = `translateX(0%)`;
+                updateIndicators();
+                requestAnimationFrame(() => {
+                    slider.style.transition = 'transform 0.5s ease';
+                    isTransitioning = false;
+                });
+            }, 500);
+            return;
+        }
+        currentSlide = index;
+        slider.style.transition = 'transform 0.5s ease';
+        slider.style.transform = `translateX(-${currentSlide * 100}%)`;
+        updateIndicators();
+        setTimeout(() => {
+            isTransitioning = false;
+        }, 500);
+    }
+
+    function updateIndicators() {
+        indicators.forEach((ind, i) => {
+            ind.classList.toggle('active', i === (currentSlide % totalSlides));
+        });
+    }
+    document.querySelector('.hero-prev').addEventListener('click', () => {
+        showSlide(currentSlide - 1, 'left');
+    });
+
+    document.querySelector('.hero-next').addEventListener('click', () => {
+        showSlide(currentSlide + 1, 'right');
+    });
+    indicators.forEach((ind, i) => {
+        ind.addEventListener('click', () => {
+            const direction = i > currentSlide ? 'right' : 'left';
+            showSlide(i, direction);
+        });
+    });
+    setInterval(() => {
+        showSlide(currentSlide + 1, 'right');
+    }, 5000);
+    showSlide(0);
+
+    // Preload images
+    const images = ['../images/test2.jpg', '../images/test3.jpg', '../images/test4.jpg'];
+    images.forEach(src => {
+        const img = new Image();
+        img.src = src;
+    });
+
+    // what we do
+    const optionBtns = document.querySelectorAll('.option-btn');
+    const img = document.getElementById('what-we-do-img');
+    const text = document.getElementById('what-we-do-text');
+
+    optionBtns.forEach(btn => {
+        btn.addEventListener('click', () => {
+            optionBtns.forEach(b => b.classList.remove('active'));
+            btn.classList.add('active');
+            img.src = btn.dataset.img;
+            text.textContent = btn.dataset.text;
+        });
+    });
+
+    //javascrip 
+    (function(){
+      const video = document.getElementById('careers-video');
+      const overlay = document.querySelector('.video-overlay');
+      const btnPlay = document.getElementById('btn-play');
+      const downloadLink = document.getElementById('download-video');
+
+      // Play button behavior: open inline playback (muted to allow autoplay on some browsers)
+      btnPlay.addEventListener('click', () => {
+        // unhide controls and play
+        video.muted = false;
+        video.controls = true;
+        video.play().catch(() => { /* ignore */ });
+        overlay.style.display = 'none';
+      });
+
+      // If user clicks the poster area, also play
+      video.addEventListener('click', () => {
+        if (video.paused) {
+          video.play();
+        } else {
+          video.pause();
+        }
+      });
+
+      // When the video ends, show overlay again
+      video.addEventListener('ended', () => {
+        overlay.style.display = 'flex';
+        video.currentTime = 0;
+        video.controls = false;
+      });
+
+      // Apply button fills position into the form
+      document.querySelectorAll('.btn-apply').forEach(btn => {
+        btn.addEventListener('click', () => {
+          const job = btn.dataset.job || '';
+          document.getElementById('app-position').value = job;
+          window.location.hash = '#apply-form';
+          document.getElementById('app-name').focus();
+        });
+      });
+
+      // Simple client-side validation - keep server-side required
+      const form = document.getElementById('form-apply');
+      form.addEventListener('submit', (e) => {
+        if (!form.checkValidity()) {
+          e.preventDefault();
+          e.stopPropagation();
+        } else {
+          e.preventDefault();
+          // TODO: replace with real upload / API call
+          alert('Thanks — your application has been received (demo).');
+          form.reset();
+        }
+        form.classList.add('was-validated');
+      });
+
+    })();
+
 </script>

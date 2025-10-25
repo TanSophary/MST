@@ -79,7 +79,7 @@
                     <th>Status</th>
                     <th>Start Date</th>
                     <th>End Date</th>
-                    <th>Image</th>
+                    <th>Thumbnail</th>
                     <th>Actions</th>
                 </tr>
             </thead>
@@ -127,7 +127,7 @@
                 <td>${escapeHtml(project.status)}</td>
                 <td>${project.startDate ? new Date(project.startDate).toLocaleDateString() : ''}</td>
                 <td>${project.endDate ? new Date(project.endDate).toLocaleDateString() : ''}</td>
-                <td>${project.imagePath ? `<img src="/Uploads/${project.imagePath}" alt="Project Image" width="100" />` : 'No image'}</td>
+                <td>${project.thumbnail ? `<img src="/Uploads/${project.thumbnail}" alt="Project Image" width="100" />` : 'No image'}</td>
                 <td>
                     <button class="btn btn-sm btn-warning editBtn" data-id="${project.id}">Edit</button>
                     <button class="btn btn-sm btn-danger deleteBtn" data-id="${project.id}">Delete</button>
@@ -263,9 +263,9 @@
 
             const imagePreview = document.getElementById("imagePreview");
 
-            if (project.imagePath) {
+            if (project.thumbnail) {
                 imagePreview.innerHTML = `
-                    <img src="/Uploads/${project.imagePath}"
+                    <img src="/Uploads/${project.thumbnail}"
                          alt="Current Image"
                          width="150"
                          class="img-thumbnail mt-2" />

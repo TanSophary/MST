@@ -2,17 +2,18 @@
     ViewData["Title"] = "Our Services";
 }
 <link href="~/css/service.css" rel="stylesheet" asp-append-version="true" />
+<script src="~/js/animation.js"></script>
 
-<!-- Hero Content Section -->
-<section class="service-hero-section d-flex align-items-center">
+<!-- Hero Section -->
+<section class="service-hero-section d-flex align-items-center animate">
     <div class="service-hero-overlay"></div>
     <div class="container text-white position-relative z-2">
         <div class="service-hero-content">
-            <h1 class="display-4 fw-bold">Building the Future with Excellence</h1>
-            <p class="lead mb-4">
-                We deliver innovative engineering and construction solutions with quality, safety, and integrity.
+            <h1 class="display-4 fw-bold animate">Building the Future with Excellence</h1>
+            <p class="lead mb-4 animate">
+                MST Construction delivers innovative engineering and construction solutions, ensuring quality, safety, and integrity in every project.
             </p>
-            <div class="search-bar d-flex align-items-center">
+            <div class="search-bar d-flex align-items-center animate">
                 <select class="form-select me-2">
                     <option>Building Construction</option>
                     <option>Civil Engineering</option>
@@ -29,43 +30,141 @@
     </div>
 </section>
 
-<!-- Service Cards Section -->
+<!-- Our Services Section -->
 <section class="service-list-section py-5">
     <div class="container">
-        <h2 class="fw-bold text-center mb-5">What We Offer</h2>
+        <h2 class="fw-bold text-center mb-5 animate">Our Expertise</h2>
         <div class="row g-4">
-            <!-- Service 1 -->
-            <div class="col-md-4">
+            <div class="col-md-4 animate">
                 <div class="service-card p-4 text-center">
                     <img src="~/images/test2.jpg" alt="Building Construction" class="img-fluid rounded mb-3">
                     <h5 class="fw-bold">Building Construction</h5>
                     <p class="text-muted">
-                        We specialize in high-quality commercial and residential construction with strong attention to detail.
+                        Delivering high-quality commercial and residential buildings with meticulous attention to detail and structural integrity.
                     </p>
                 </div>
             </div>
-
-            <!-- Service 2 -->
-            <div class="col-md-4">
+            <div class="col-md-4 animate">
                 <div class="service-card p-4 text-center">
                     <img src="~/images/test2.jpg" alt="Civil Engineering" class="img-fluid rounded mb-3">
                     <h5 class="fw-bold">Civil Engineering</h5>
                     <p class="text-muted">
-                        Our civil engineering services ensure sustainable infrastructure with precision and safety.
+                        Designing sustainable infrastructure projects with precision, safety, and innovative engineering solutions.
                     </p>
                 </div>
             </div>
-
-            <!-- Service 3 -->
-            <div class="col-md-4">
+            <div class="col-md-4 animate">
                 <div class="service-card p-4 text-center">
                     <img src="~/images/test2.jpg" alt="Project Consulting" class="img-fluid rounded mb-3">
                     <h5 class="fw-bold">Project Consulting</h5>
                     <p class="text-muted">
-                        We provide professional consulting and project management for efficient and cost-effective execution.
+                        Providing professional project management and consulting to ensure efficiency, cost-effectiveness, and successful delivery.
                     </p>
                 </div>
             </div>
         </div>
     </div>
 </section>
+
+<!-- Our Process Section -->
+<section class="process-section py-5 bg-light">
+    <div class="container">
+        <h2 class="fw-bold text-center mb-5 animate">Our Process</h2>
+        <div class="row g-4 text-center">
+            <div class="col-md-3 animate">
+                <div class="process-step p-4">
+                    <div class="step-number">1</div>
+                    <h5>Planning</h5>
+                    <p>Thorough planning for smooth execution and project success.</p>
+                </div>
+            </div>
+            <div class="col-md-3 animate">
+                <div class="process-step p-4">
+                    <div class="step-number">2</div>
+                    <h5>Design</h5>
+                    <p>Innovative designs tailored to client needs and modern standards.</p>
+                </div>
+            </div>
+            <div class="col-md-3 animate">
+                <div class="process-step p-4">
+                    <div class="step-number">3</div>
+                    <h5>Construction</h5>
+                    <p>Efficient and safe construction, delivering projects with precision.</p>
+                </div>
+            </div>
+            <div class="col-md-3 animate">
+                <div class="process-step p-4">
+                    <div class="step-number">4</div>
+                    <h5>Delivery</h5>
+                    <p>Timely delivery ensuring client satisfaction and quality assurance.</p>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- Featured Projects Section -->
+<section class="projects-section py-5">
+    <div class="container">
+        <h2 class="fw-bold text-center mb-5 animate">Featured Projects</h2>
+        <div class="row g-4">
+            <div class="col-md-4 animate">
+                <div class="project-card position-relative">
+                    <img src="~/images/test3.jpg" class="img-fluid rounded" alt="Urban Development">
+                    <div class="project-overlay">
+                        <h5>Urban Development</h5>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-4 animate">
+                <div class="project-card position-relative">
+                    <img src="~/images/test2.jpg" class="img-fluid rounded" alt="Industrial Complex">
+                    <div class="project-overlay">
+                        <h5>Industrial Complex</h5>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-4 animate">
+                <div class="project-card position-relative">
+                    <img src="~/images/test3.jpg" class="img-fluid rounded" alt="Residential Tower">
+                    <div class="project-overlay">
+                        <h5>Residential Tower</h5>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- Testimonials Section -->
+<section class="testimonial-section py-5 bg-light">
+    <div class="container">
+        <h2 class="fw-bold text-center mb-5 animate">Client Testimonials</h2>
+        <div class="row g-4">
+            <div class="col-md-4 animate">
+                <div class="testimonial-card p-4 text-center">
+                    <p>"Professional, reliable, and efficient. MST Construction exceeded our expectations!"</p>
+                    <h6 class="fw-bold">John Doe</h6>
+                    <span>CEO, ABC Corp</span>
+                </div>
+            </div>
+            <div class="col-md-4 animate">
+                <div class="testimonial-card p-4 text-center">
+                    <p>"Their expertise in civil engineering and project management is unmatched."</p>
+                    <h6 class="fw-bold">Jane Smith</h6>
+                    <span>Project Manager, XYZ Ltd.</span>
+                </div>
+            </div>
+            <div class="col-md-4 animate">
+                <div class="testimonial-card p-4 text-center">
+                    <p>"We achieved our goals on time and within budget thanks to MST Construction."</p>
+                    <h6 class="fw-bold">Michael Lee</h6>
+                    <span>Director, DEF Inc.</span>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- Call to Action Section -->
+@await Html.PartialAsync("_Buttom")

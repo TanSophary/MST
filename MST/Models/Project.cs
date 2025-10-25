@@ -1,4 +1,8 @@
-﻿using System;
+﻿using Microsoft.AspNetCore.Authorization;
+using Microsoft.AspNetCore.Mvc;
+using MST.Data;
+using MST.Models;
+using System;
 using System.ComponentModel.DataAnnotations;
 
 namespace MST.Models
@@ -20,7 +24,7 @@ namespace MST.Models
         public string Status { get; set; } = null!;
 
         // Optional image path (nullable)
-        public string? ImagePath { get; set; }
+        public string? Thumbnail { get; set; }
         [DataType(DataType.Date)]
         public DateTime? StartDate { get; set; }
 

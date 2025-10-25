@@ -56,7 +56,7 @@ namespace MST.Controllers
                 return BadRequest(new { Errors = new[] { "Project model is null" } });
             }
 
-            ModelState.Remove(nameof(model.ImagePath));
+            ModelState.Remove(nameof(model.Thumbnail));
             ModelState.Remove(nameof(model.Id));
 
             if (!ModelState.IsValid)
@@ -81,11 +81,11 @@ namespace MST.Controllers
                     {
                         await Image.CopyToAsync(stream);
                     }
-                    model.ImagePath = fileName;
+                    model.Thumbnail = fileName;
                 }
                 else
                 {
-                    model.ImagePath = null;
+                    model.Thumbnail = null;
                 }
 
                 // Ensure Id is 0 so EF treats as new entity
@@ -113,7 +113,7 @@ namespace MST.Controllers
                 return BadRequest(new { Errors = new[] { "Project model is null" } });
 
             // Do not trust a posted ImagePath; server manages it
-            ModelState.Remove(nameof(model.ImagePath));
+            ModelState.Remove(nameof(model.Thumbnail));
 
             if (!ModelState.IsValid)
             {
@@ -148,16 +148,16 @@ namespace MST.Controllers
                     }
 
                     // Delete old image if exists
-                    if (!string.IsNullOrEmpty(existingProject.ImagePath))
+                    if (!string.IsNullOrEmpty(existingProject.Thumbnail))
                     {
-                        var oldImagePath = Path.Combine(uploadsFolder, existingProject.ImagePath);
+                        var oldImagePath = Path.Combine(uploadsFolder, existingProject.Thumbnail);
                         if (System.IO.File.Exists(oldImagePath))
                         {
                             System.IO.File.Delete(oldImagePath);
                         }
                     }
 
-                    existingProject.ImagePath = fileName;
+                    existingProject.Thumbnail = fileName;
                 }
 
                 await _context.SaveChangesAsync();
@@ -175,9 +175,9 @@ namespace MST.Controllers
             var project = await _context.Projects.FindAsync(id);
             if (project == null) return NotFound();
 
-            if (!string.IsNullOrEmpty(project.ImagePath))
+            if (!string.IsNullOrEmpty(project.Thumbnail))
             {
-                var imagePath = Path.Combine(_environment.WebRootPath ?? "wwwroot", "Uploads", project.ImagePath);
+                var imagePath = Path.Combine(_environment.WebRootPath ?? "wwwroot", "Uploads", project.Thumbnail);
                 if (System.IO.File.Exists(imagePath))
                 {
                     System.IO.File.Delete(imagePath);

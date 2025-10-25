@@ -2,66 +2,39 @@
     ViewData["Title"] = "Home";
 }
 <link href="~/css/home.css" rel="stylesheet" asp-append-version="true" />
+<script src="~/js/animation.js" asp-append-version="true"></script>
 
 <!-- Slide Section -->
 <section class="hero-section">
-    <div class="hero-slider animate">
+    <div class="hero-slider">
         <div class="hero-slide animate" style="background-image: url('../images/test2.jpg')">
         </div>
-        <div class="hero-slide animate" style="background-image: url('../images/test3.jpg')">
+        <div class="hero-slide" style="background-image: url('../images/test3.jpg')">
         </div>
-        <div class="hero-slide animate" style="background-image: url('../images/test4.jpg')">
+        <div class="hero-slide" style="background-image: url('../images/test4.jpg')">
         </div>
         <!-- Duplicate of the first slide -->
-        <div class="hero-slide animate" style="background-image: url('../images/test2.jpg')"></div>
+        <div class="hero-slide" style="background-image: url('../images/test2.jpg')"></div>
     </div>
     <!-- Navigation Arrows -->
-    <div class="hero-nav hero-prev animate">&#10094;</div>
-    <div class="hero-nav hero-next animate">&#10095;</div>
-    <div class="hero-indicators animate">
-        <span class="indicator active animate" data-slide="0"></span>
-        <span class="indicator animate" data-slide="1"></span>
-        <span class="indicator animate" data-slide="2"></span>
+    <div class="hero-nav hero-prev">&#10094;</div>
+    <div class="hero-nav hero-next">&#10095;</div>
+    <div class="hero-indicators">
+        <span class="indicator" data-slide="0"></span>
+        <span class="indicator" data-slide="1"></span>
+        <span class="indicator" data-slide="2"></span>
     </div>
 </section>
-
-<!-- Features Section -->
-<section class="features-section py-5 text-center">
-    <div class="container animate">
-        <h1 class="fw-bold mb-4 animate">Committed to Engineering Excellence</h1>
-        <p class="text-muted mb-5 animate">
-            Delivering reliable construction and engineering solutions that build trust, innovation, and long-term value.
-        </p>
-        <div class="row animate">
-            <div class="col-md-4 mb-3 animate">
-                <div class="feature-card p-4 animate">
-                    <h3 class="fw-bold text-primary animate">200+</h3>
-                    <p class="animate">Successful Projects</p>
-                </div>
-            </div>
-            <div class="col-md-4 mb-3 animate">
-                <div class="feature-card p-4 animate">
-                    <h3 class="fw-bold text-primary animate">80+</h3>
-                    <p class="animate">Professional Engineers</p>
-                </div>
-            </div>
-            <div class="col-md-4 mb-3 animate">
-                <div class="feature-card p-4 animate">
-                    <h3 class="fw-bold text-primary animate">10+</h3>
-                    <p class="animate">Years of Experience</p>
-                </div>
-            </div>
-        </div>
-    </div>
-</section>
-
 <!-- About MST Company Section -->
 <section class="about-section py-5">
     <div class="container animate">
         <div class="row align-items-center animate">
             <!-- Left Text Column -->
             <div class="col-lg-6 mb-4 mb-lg-0 animate">
-                <h5 class="fw-bold mb-3 animate">Who We Are</h5>
+                <h5 class="fw-bold mb-3 animate">WHO WE ARE</h5>
+                <blockquote class="about-quote animate">
+                    “When we focus on mutual success, everyone wins.”
+                </blockquote>
                 <p class="animate">
                     At MST Company, we focus on mutual success. Our flexibility to mobilize the right people ensures unique solutions,
                     while our commitment to innovation delivers tangible value to your projects. Collaboration and expertise drive
@@ -75,25 +48,29 @@
                     From advanced construction technologies to sustainable solutions, MST Company leads with over a decade of proven
                     experience helping clients build long-lasting legacies.
                 </p>
+
+                <!-- About Us Button -->
+                <a href="/Home/AboutUs" class="btn btn-about mt-3 animate">About Us</a>
             </div>
-            <!-- Right Stats Column with Green Border Boxes -->
+
+            <!-- Right Stats Column -->
             <div class="col-lg-6 animate">
                 <div class="row text-center animate">
                     <div class="col-4 mb-3 animate">
                         <div class="stat-box p-4 animate">
-                            <h3 class="fw-bold text-primary animate">10</h3>
+                            <h3 class="fw-bold animate">10</h3>
                             <p class="animate">Years in Operation</p>
                         </div>
                     </div>
                     <div class="col-4 mb-3 animate">
                         <div class="stat-box p-4 animate">
-                            <h3 class="fw-bold text-primary animate">$1B+</h3>
+                            <h3 class="fw-bold animate">$1B+</h3>
                             <p class="animate">Annual Project Volume</p>
                         </div>
                     </div>
                     <div class="col-4 mb-3 animate">
                         <div class="stat-box p-4 animate">
-                            <h3 class="fw-bold text-primary animate">#25</h3>
+                            <h3 class="fw-bold animate">#25</h3>
                             <p class="animate">Industry Ranking</p>
                         </div>
                     </div>
@@ -103,42 +80,49 @@
     </div>
 </section>
 
+
 <!-- What We Do Section -->
 <section class="what-we-do-section py-5">
     <div class="container animate">
         <!-- Main Title -->
-        <h1 class="fw-bold text-center mb-5 animate">Our Expertise in Construction</h1>
+        <span class="section-label text-center d-block fw-bold text-uppercase mb-2 animate">WHAT WE DO</span>
+        <h2 class="fw-bold text-center mb-5 animate">Our Expertise in Construction</h2>
+
         <div class="row align-items-center animate">
             <!-- Left Image Column -->
             <div class="col-lg-6 mb-4 mb-lg-0 animate">
                 <div class="image-options mb-3 text-center animate">
                     <button class="option-btn active animate"
                             data-img="images/test2.jpg"
+                            data-title="Innovative Solutions for Modern Construction"
                             data-text="MST Company delivers tailored construction and engineering services for buildings of all types, including residential, commercial, and institutional projects. Our team combines local expertise with global knowledge to provide efficient, safe, and sustainable solutions. We focus on innovation, precision, and reliability to ensure every project meets client expectations and exceeds industry standards.">
                         Buildings
                     </button>
                     <button class="option-btn animate"
                             data-img="images/test3.jpg"
+                            data-title="Building Strong Foundations for the Future"
                             data-text="Our civil infrastructure projects encompass roads, bridges, highways, and public works, designed to enhance connectivity and improve communities. MST Company applies rigorous planning, advanced engineering, and sustainable construction practices to ensure every project is durable, safe, and environmentally responsible. We focus on long-term performance while meeting budgets and project timelines with precision and professionalism.">
                         Civil Infrastructure
                     </button>
                     <button class="option-btn animate"
                             data-img="images/test4.jpg"
+                            data-title="Powering Industrial Growth Through Engineering Excellence"
                             data-text="MST Company specializes in heavy industrial construction, including factories, warehouses, and energy facilities. We provide end-to-end solutions from design, planning, and structural engineering to construction management. Our team ensures compliance with safety standards, delivers innovative solutions, and applies global best practices to achieve efficiency, reliability, and quality outcomes for complex industrial projects.">
                         Heavy Industrial
                     </button>
                     <button class="option-btn animate"
                             data-img="images/test5.jpg"
+                            data-title="Custom-Built Solutions for Unique Projects"
                             data-text="For specialized projects that require unique solutions, MST Company delivers creativity, innovation, and expertise. From custom facilities to highly technical construction challenges, we tailor every project to meet client-specific requirements. Our team combines advanced engineering, thorough planning, and hands-on project management to ensure timely delivery, exceptional quality, and safe, sustainable outcomes for even the most complex and demanding construction projects.">
                         Special Projects
                     </button>
                 </div>
                 <img id="what-we-do-img" src="images/test2.jpg" alt="MST Company Projects" class="img-fluid rounded animate">
             </div>
+
             <!-- Right Text Column -->
             <div class="col-lg-6 animate">
-                <span class="section-label animate">WHAT WE DO</span>
-                <h2 class="fw-bold mb-3 animate">Innovative Solutions for Modern Construction</h2>
+                <h2 id="what-we-do-title" class="fw-bold mb-3 animate">Innovative Solutions for Modern Construction</h2>
                 <p id="what-we-do-text" class="text-muted mb-4 animate">
                     MST Company delivers tailored construction and engineering services for buildings of all types, including residential, commercial, and institutional projects. Our team combines local expertise with global knowledge to provide efficient, safe, and sustainable solutions. We focus on innovation, precision, and reliability to ensure every project meets client expectations and exceeds industry standards.
                 </p>
@@ -148,11 +132,12 @@
     </div>
 </section>
 
+
 <!-- What We Build Section -->
 <section class="what-we-build-section py-5">
     <div class="container animate">
         <!-- Main Title -->
-        <h1 class="fw-bold text-center mb-5 animate">What We Build</h1>
+        <h2 class="fw-bold text-center mb-5 animate">What We Build</h2>
         <div class="row g-4 align-items-center animate">
             <!-- Left Image Column -->
             <div class="col-lg-6 animate">
@@ -189,7 +174,7 @@
     <div class="container animate">
         <div class="row align-items-center mb-5 animate">
             <div class="col-lg-6 animate">
-                <h1 class="fw-bold animate">Careers at MST Company</h1>
+                <h2 class="fw-bold animate">Careers at MST Company</h2>
                 <p class="text-muted animate">Join a team that builds meaningful projects and grows with industry-leading training, benefits, and opportunities.</p>
                 <p class="text-muted animate">Watch our short company overview below to learn what it's like to work with us.</p>
             </div>
@@ -378,55 +363,8 @@
         </div>
     </div>
 </section>
-
-<!-- Ready to Work Together Section -->
-<section class="ready-section py-5 position-relative">
-    <div class="container d-flex align-items-center justify-content-between flex-wrap animate">
-        <!-- Text Content -->
-        <div class="ready-text me-4 animate">
-            <h1 class="fw-bold mb-3 animate">Ready to work together?</h1>
-            <p class="mb-4 fs-5 text-muted animate">
-                Whether you have a project in mind and you’re looking for a reliable construction partner
-                or you’re looking to take the next step in your career, we want to hear from you!
-            </p>
-            <div class="d-flex gap-3 flex-wrap animate">
-                <a href="#project" class="btn btn-solid animate">Build a Project with Us</a>
-                <a href="#career" class="btn btn-outline animate">Build a Career with Us</a>
-            </div>
-        </div>
-        <!-- Decorative Shapes -->
-        <div class="shapes animate">
-            <span class="polygon-left animate"></span>
-            <span class="polygon-right animate"></span>
-        </div>
-    </div>
-</section>
-
+@await Html.PartialAsync("_Buttom")
 <script>
-    // Scroll-triggered animations for all elements with 'animate' class
-    document.addEventListener('DOMContentLoaded', () => {
-        const elements = document.querySelectorAll('.animate');
-
-        const observerOptions = {
-            root: null,
-            rootMargin: '0px',
-            threshold: 0.1
-        };
-
-        const observer = new IntersectionObserver((entries, observer) => {
-            entries.forEach(entry => {
-                if (entry.isIntersecting) {
-                    entry.target.classList.add('visible');
-                    observer.unobserve(entry.target); // Stop observing once animated
-                }
-            });
-        }, observerOptions);
-
-        elements.forEach(element => {
-            observer.observe(element);
-        });
-    });
-
     // Featured Projects Scrolling
     const propertyRow = document.querySelector('.property-row');
     const scrollPrev = document.querySelector('.scroll-prev');
@@ -538,16 +476,21 @@
     });
 
     // What we do
-    const optionBtns = document.querySelectorAll('.option-btn');
-    const img = document.getElementById('what-we-do-img');
-    const text = document.getElementById('what-we-do-text');
+    document.querySelectorAll(".option-btn").forEach(button => {
+        button.addEventListener("click", () => {
+            // Remove active state
+            document.querySelectorAll(".option-btn").forEach(btn => btn.classList.remove("active"));
+            button.classList.add("active");
 
-    optionBtns.forEach(btn => {
-        btn.addEventListener('click', () => {
-            optionBtns.forEach(b => b.classList.remove('active'));
-            btn.classList.add('active');
-            img.src = btn.dataset.img;
-            text.textContent = btn.dataset.text;
+            // Update image
+            const img = document.getElementById("what-we-do-img");
+            img.src = button.getAttribute("data-img");
+
+            // Update title and text
+            const title = document.getElementById("what-we-do-title");
+            const text = document.getElementById("what-we-do-text");
+            title.textContent = button.getAttribute("data-title");
+            text.textContent = button.getAttribute("data-text");
         });
     });
 

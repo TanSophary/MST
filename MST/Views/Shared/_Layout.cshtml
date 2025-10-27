@@ -34,19 +34,10 @@
                         <li class="nav-item">
                             <a class="nav-link" asp-area="" asp-controller="Home" asp-action="AboutUs">About Us</a>
                         </li>
-                        <li class="nav-item">
-                            <a class="nav-link" asp-area="" asp-controller="Home" asp-action="Privacy">Privacy</a>
-                        </li>
                         @if (User.IsInRole("Admin"))
                         {
                             <li class="nav-item">
                                 <a class="nav-link" asp-area="" asp-controller="Admin" asp-action="Dashboard">Admin</a>
-                            </li>
-                        }
-                        @if (User.IsInRole("User"))
-                        {
-                            <li class="nav-item">
-                                <a class="nav-link" asp-area="" asp-controller="Home" asp-action="User">User</a>
                             </li>
                         }
                         <partial name="_LoginPartial" />

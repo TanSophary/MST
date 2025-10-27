@@ -27,7 +27,7 @@ namespace MST.Services
 
                 //Add admin user
                 logger.LogInformation("Seeding admin user.");
-                var adminEmail = "ryry@gmail.com";
+                var adminEmail = "tansophary@gmail.com";
                 if(await userManager.FindByEmailAsync(adminEmail) == null)
                 {
                     var adminUser = new Users

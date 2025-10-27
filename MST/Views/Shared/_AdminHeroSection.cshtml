@@ -1,0 +1,26 @@
+﻿@* Views/Shared/_AdminHeroSection.cshtml *@
+<link rel="stylesheet" href="~/css/addmin_hero.css" asp-append-version="true" />
+
+<section class="admin-hero-section d-flex align-items-center text-white">
+    <div class="admin-hero-overlay"></div>
+
+    <div class="hero-menu-bottom position-absolute w-100 d-flex justify-content-center" style="bottom: -25px; z-index: 3;">
+        <a asp-controller="Admin" asp-action="Dashboard" class="btn menu-btn dashboard me-3">
+            <i class="bi bi-speedometer2"></i> Dashboard
+        </a>
+        <a asp-controller="Admin" asp-action="Projects" class="btn menu-btn projects me-3">
+            <i class="bi bi-folder2-open"></i> Projects
+        </a>
+        <a asp-controller="Admin" asp-action="Users" class="btn menu-btn users me-3">
+            <i class="bi bi-people"></i> Users
+        </a>
+        <a asp-controller="Admin" asp-action="Settings" class="btn menu-btn settings">
+            <i class="bi bi-gear"></i> Settings
+        </a>
+    </div>
+
+    <div class="container text-center position-relative z-2">
+        <h1 class="fw-bold mb-2">Welcome to Admin Page</h1>
+        <p class="lead mb-5">Manage projects, updates, and more from one place.</p>
+    </div>
+</section>

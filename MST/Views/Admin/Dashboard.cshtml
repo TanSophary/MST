@@ -1,0 +1,83 @@
+﻿@{
+    ViewData["Title"] = "Admin Dashboard";
+}
+<link rel="stylesheet" href="~/css/dashboard.css" asp-append-version="true" />
+
+@await Html.PartialAsync("_AdminHeroSection")
+
+<div class="container py-5">
+
+    <!-- Stats Cards -->
+    <div class="row mb-5">
+        <div class="col-md-3 mb-3">
+            <div class="card shadow-sm p-3 text-center">
+                <h5>Total Projects</h5>
+                <h2>12</h2>
+                <i class="bi bi-folder2-open fs-1 text-primary"></i>
+            </div>
+        </div>
+        <div class="col-md-3 mb-3">
+            <div class="card shadow-sm p-3 text-center">
+                <h5>Ongoing Projects</h5>
+                <h2>5</h2>
+                <i class="bi bi-arrow-repeat fs-1 text-success"></i>
+            </div>
+        </div>
+        <div class="col-md-3 mb-3">
+            <div class="card shadow-sm p-3 text-center">
+                <h5>Completed Projects</h5>
+                <h2>7</h2>
+                <i class="bi bi-check2-circle fs-1 text-info"></i>
+            </div>
+        </div>
+        <div class="col-md-3 mb-3">
+            <div class="card shadow-sm p-3 text-center">
+                <h5>Total Users</h5>
+                <h2>24</h2>
+                <i class="bi bi-people fs-1 text-warning"></i>
+            </div>
+        </div>
+    </div>
+
+    <!-- Projects Table -->
+    <div class="card p-4 shadow-sm">
+        <h5 class="mb-3 fw-semibold">Project List</h5>
+        <table class="table table-bordered align-middle text-center">
+            <thead class="table-light">
+                <tr>
+                    <th>#</th>
+                    <th>Project Name</th>
+                    <th>Status</th>
+                    <th>Start Date</th>
+                    <th>End Date</th>
+                    <th>Actions</th>
+                </tr>
+            </thead>
+            <tbody id="projectTable">
+                <tr>
+                    <td>1</td>
+                    <td>Website Redesign</td>
+                    <td>Ongoing</td>
+                    <td>2025-09-01</td>
+                    <td>2025-10-31</td>
+                    <td>
+                        <button class="btn btn-sm btn-warning">Edit</button>
+                        <button class="btn btn-sm btn-danger">Delete</button>
+                    </td>
+                </tr>
+                <tr>
+                    <td>2</td>
+                    <td>Mobile App Launch</td>
+                    <td>Planned</td>
+                    <td>2025-11-01</td>
+                    <td>2026-01-15</td>
+                    <td>
+                        <button class="btn btn-sm btn-warning">Edit</button>
+                        <button class="btn btn-sm btn-danger">Delete</button>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+</div>
+

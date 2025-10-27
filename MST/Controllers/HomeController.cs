@@ -23,11 +23,7 @@ public class HomeController : Controller
     {
         return View();
     }
-    [Authorize(Roles = "Admin")]
-    public IActionResult Admin()
-    {
-        return View();
-    }
+
     [Authorize(Roles = "User")]
     public IActionResult User()
     {

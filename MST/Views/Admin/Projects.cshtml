@@ -1,15 +1,9 @@
 ﻿@{
     ViewData["Title"] = "Admin Page";
 }
-<link href="~/css/admin.css" rel="stylesheet" />
+<link rel="stylesheet" href="~/css/admin.css" asp-append-version="true" />
 
-<section class="admin-hero-section d-flex align-items-center text-white">
-    <div class="admin-hero-overlay"></div>
-    <div class="container text-center position-relative z-2">
-        <h1 class="display-5 fw-bold mb-2">Welcome to Admin Page</h1>
-        <p class="lead">Manage projects, updates, and more from one place.</p>
-    </div>
-</section>
+@await Html.PartialAsync("_AdminHeroSection")
 
 <div class="container py-5">
     <h2 class="text-center mb-4 fw-bold">Admin Project Management</h2>

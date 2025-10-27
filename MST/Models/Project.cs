@@ -25,6 +25,7 @@ namespace MST.Models
 
         // Optional image path (nullable)
         public string? Thumbnail { get; set; }
+        public string? ImageList { get; set; }
         [DataType(DataType.Date)]
         public DateTime? StartDate { get; set; }
 

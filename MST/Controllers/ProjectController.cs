@@ -5,6 +5,7 @@ using Microsoft.EntityFrameworkCore;
 using System.IO;
 using MST.Data;
 using Microsoft.AspNetCore.Hosting;
+using System.Text.Json; // For JSON serialization
 
 namespace MST.Controllers
 {
@@ -45,7 +46,7 @@ namespace MST.Controllers
 
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> AddProject([FromForm] Project model, IFormFile? Image)
+        public async Task<IActionResult> AddProject([FromForm] Project model, IFormFile? Image, IFormFileCollection? ImageList)
         {
             if (model.StartDate.HasValue && model.EndDate.HasValue && model.EndDate < model.StartDate)
             {
@@ -58,6 +59,7 @@ namespace MST.Controllers
 
             ModelState.Remove(nameof(model.Thumbnail));
             ModelState.Remove(nameof(model.Id));
+            ModelState.Remove(nameof(model.ImageList));
 
             if (!ModelState.IsValid)
             {
@@ -67,14 +69,13 @@ namespace MST.Controllers
 
             try
             {
-                //model.CreateDate = DateTime.UtcNow;
+                var uploadsFolder = Path.Combine(_environment.WebRootPath ?? "wwwroot", "Uploads");
+                if (!Directory.Exists(uploadsFolder))
+                    Directory.CreateDirectory(uploadsFolder);
 
+                // Handle Thumbnail (single image)
                 if (Image != null && Image.Length > 0)
                 {
-                    var uploadsFolder = Path.Combine(_environment.WebRootPath ?? "wwwroot", "Uploads");
-                    if (!Directory.Exists(uploadsFolder))
-                        Directory.CreateDirectory(uploadsFolder);
-
                     var fileName = Guid.NewGuid().ToString("N") + Path.GetExtension(Image.FileName);
                     var filePath = Path.Combine(uploadsFolder, fileName);
                     await using (var stream = new FileStream(filePath, FileMode.Create))
@@ -88,9 +89,27 @@ namespace MST.Controllers
                     model.Thumbnail = null;
                 }
 
-                // Ensure Id is 0 so EF treats as new entity
-                model.Id = 0;
+                // Handle ImageList (multiple images)
+                var imageList = new List<string>();
+                if (ImageList != null && ImageList.Count > 0)
+                {
+                    foreach (var file in ImageList)
+                    {
+                        if (file.Length > 0)
+                        {
+                            var fileName = Guid.NewGuid().ToString("N") + Path.GetExtension(file.FileName);
+                            var filePath = Path.Combine(uploadsFolder, fileName);
+                            await using (var stream = new FileStream(filePath, FileMode.Create))
+                            {
+                                await file.CopyToAsync(stream);
+                            }
+                            imageList.Add(fileName);
+                        }
+                    }
+                }
+                model.ImageList = imageList.Any() ? JsonSerializer.Serialize(imageList) : null;
 
+                model.Id = 0; // Ensure EF treats as new entity
                 _context.Projects.Add(model);
                 await _context.SaveChangesAsync();
                 return Ok(new { Success = true });
@@ -101,9 +120,9 @@ namespace MST.Controllers
             }
         }
 
-        [HttpPost]
+        [HttpPut]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> UpdateProject([FromForm] Project model, IFormFile? Image)
+        public async Task<IActionResult> UpdateProject([FromForm] Project model, IFormFile? Image, IFormFileCollection? ImageList)
         {
             if (model.StartDate.HasValue && model.EndDate.HasValue && model.EndDate < model.StartDate)
             {
@@ -112,8 +131,8 @@ namespace MST.Controllers
             if (model == null)
                 return BadRequest(new { Errors = new[] { "Project model is null" } });
 
-            // Do not trust a posted ImagePath; server manages it
             ModelState.Remove(nameof(model.Thumbnail));
+            ModelState.Remove(nameof(model.ImageList));
 
             if (!ModelState.IsValid)
             {
@@ -133,13 +152,13 @@ namespace MST.Controllers
                 existingProject.StartDate = model.StartDate;
                 existingProject.EndDate = model.EndDate;
 
+                var uploadsFolder = Path.Combine(_environment.WebRootPath ?? "wwwroot", "Uploads");
+                if (!Directory.Exists(uploadsFolder))
+                    Directory.CreateDirectory(uploadsFolder);
 
+                // Handle Thumbnail
                 if (Image != null && Image.Length > 0)
                 {
-                    var uploadsFolder = Path.Combine(_environment.WebRootPath ?? "wwwroot", "Uploads");
-                    if (!Directory.Exists(uploadsFolder))
-                        Directory.CreateDirectory(uploadsFolder);
-
                     var fileName = Guid.NewGuid().ToString("N") + Path.GetExtension(Image.FileName);
                     var filePath = Path.Combine(uploadsFolder, fileName);
                     await using (var stream = new FileStream(filePath, FileMode.Create))
@@ -147,7 +166,7 @@ namespace MST.Controllers
                         await Image.CopyToAsync(stream);
                     }
 
-                    // Delete old image if exists
+                    // Delete old thumbnail if exists
                     if (!string.IsNullOrEmpty(existingProject.Thumbnail))
                     {
                         var oldImagePath = Path.Combine(uploadsFolder, existingProject.Thumbnail);
@@ -156,9 +175,44 @@ namespace MST.Controllers
                             System.IO.File.Delete(oldImagePath);
                         }
                     }
-
                     existingProject.Thumbnail = fileName;
                 }
+
+                // Handle ImageList - Only update if new images are provided
+                if (ImageList != null && ImageList.Any(file => file.Length > 0))
+                {
+                    // Delete old ImageList images if they exist
+                    if (!string.IsNullOrEmpty(existingProject.ImageList))
+                    {
+                        var oldImageList = JsonSerializer.Deserialize<List<string>>(existingProject.ImageList) ?? new List<string>();
+                        foreach (var oldImage in oldImageList)
+                        {
+                            var oldImagePath = Path.Combine(uploadsFolder, oldImage);
+                            if (System.IO.File.Exists(oldImagePath))
+                            {
+                                System.IO.File.Delete(oldImagePath);
+                            }
+                        }
+                    }
+
+                    // Add new images to ImageList
+                    var imageList = new List<string>();
+                    foreach (var file in ImageList)
+                    {
+                        if (file.Length > 0)
+                        {
+                            var fileName = Guid.NewGuid().ToString("N") + Path.GetExtension(file.FileName);
+                            var filePath = Path.Combine(uploadsFolder, fileName);
+                            await using (var stream = new FileStream(filePath, FileMode.Create))
+                            {
+                                await file.CopyToAsync(stream);
+                            }
+                            imageList.Add(fileName);
+                        }
+                    }
+                    existingProject.ImageList = imageList.Any() ? JsonSerializer.Serialize(imageList) : null;
+                }
+                // If no new images are uploaded, do not modify existingProject.ImageList
 
                 await _context.SaveChangesAsync();
                 return Ok(new { Success = true });
@@ -175,12 +229,29 @@ namespace MST.Controllers
             var project = await _context.Projects.FindAsync(id);
             if (project == null) return NotFound();
 
+            var uploadsFolder = Path.Combine(_environment.WebRootPath ?? "wwwroot", "Uploads");
+
+            // Delete Thumbnail
             if (!string.IsNullOrEmpty(project.Thumbnail))
             {
-                var imagePath = Path.Combine(_environment.WebRootPath ?? "wwwroot", "Uploads", project.Thumbnail);
+                var imagePath = Path.Combine(uploadsFolder, project.Thumbnail);
                 if (System.IO.File.Exists(imagePath))
                 {
                     System.IO.File.Delete(imagePath);
+                }
+            }
+
+            // Delete ImageList images
+            if (!string.IsNullOrEmpty(project.ImageList))
+            {
+                var imageList = JsonSerializer.Deserialize<List<string>>(project.ImageList) ?? new List<string>();
+                foreach (var image in imageList)
+                {
+                    var imagePath = Path.Combine(uploadsFolder, image);
+                    if (System.IO.File.Exists(imagePath))
+                    {
+                        System.IO.File.Delete(imagePath);
+                    }
                 }
             }
 
